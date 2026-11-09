@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Code ϕ — Cresça com método</title>
+<meta name="description" content="Seu negócio investe mais e vende igual? A Code ϕ olha o negócio inteiro, do anúncio à recompra, e corrige o que trava o crescimento com dados. Comece pelo Raio-X gratuito.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#08080a">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Meta Pixel · Code Phi - Site -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2370723583675147');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2370723583675147&ev=PageView&noscript=1"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.TYPEFORM_URL="";window.YOUTUBE_URL="";</script>
+<style>
+:root{--bg:#08080a;--bg2:#0d0d10;--card:#111114;--line:#222228;--line2:#2e2e36;--ink:#f1f1ec;--muted:#9a9aa3;--dim:#74747c;--acc:#cfff3e;--on:#0a0a0a;--acc-a:rgba(207,255,62,.12);--red:#ff6b5b;--ease:cubic-bezier(.16,1,.3,1);color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"Geist Mono",ui-monospace,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+section{padding:110px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:500 12.5px "Geist Mono",monospace;color:var(--acc);letter-spacing:.05em;text-transform:uppercase;margin-bottom:20px}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 12px var(--acc)}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em}
+h2{font-size:clamp(34px,4.4vw,56px);line-height:1.04;max-width:820px}
+h2 .m{color:var(--dim)}
+.sub{color:var(--muted);font-size:18px;max-width:600px;margin-top:20px;line-height:1.55}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;position:relative;overflow:hidden}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.btn{display:inline-flex;align-items:center;gap:10px;font:500 15px Geist,sans-serif;padding:14px 20px;border-radius:12px;cursor:pointer;border:none;transition:transform .3s var(--ease)}
+.btn-acc{background:var(--acc);color:var(--on);box-shadow:0 10px 34px -14px var(--acc)}
+.btn-acc:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line2)}
+.btn-ghost:hover{background:var(--card)}
+.sym{display:inline-block;vertical-align:-2px}
+.sym{stroke:var(--acc)}
+
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:50;width:min(1120px,calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;padding:9px 10px 9px 18px;border-radius:14px;border:1px solid transparent;transition:all .4s var(--ease)}
+nav.on{background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.logo{display:inline-flex;align-items:center;gap:2px;font-weight:500;font-size:22px;letter-spacing:-.045em}
+.navic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;color:var(--muted);transition:color .2s,background .2s}.navic:hover{color:var(--acc);background:var(--card)}
+.nl{display:flex;gap:2px}.nl a{font-size:14px;color:var(--muted);padding:8px 12px;border-radius:8px}.nl a:hover{color:var(--ink);background:var(--card)}
+nav .btn{padding:10px 15px;font-size:14px;border-radius:10px}
+
+.hero{padding:150px 0 90px;overflow:hidden}
+.hero .gridbg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask:radial-gradient(ellipse 60% 60% at 70% 35%,#000 15%,transparent 75%);mask:radial-gradient(ellipse 60% 60% at 70% 35%,#000 15%,transparent 75%);opacity:.6}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.05fr;gap:46px;align-items:center}
+.hero h1{font-size:clamp(42px,5.4vw,72px);line-height:1;letter-spacing:-.05em}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero .ctas{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.chips{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+.chips span{display:flex;align-items:center;gap:7px}.chips svg{color:var(--acc)}
+.vid{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line2);background:var(--bg2);aspect-ratio:16/9;box-shadow:0 40px 90px -40px rgba(0,0,0,.5)}
+.vid video{display:block;width:100%;height:100%;object-fit:cover}
+.vid .lbl{position:absolute;left:14px;top:12px;font:500 11px "Geist Mono",monospace;color:var(--muted);background:color-mix(in srgb,var(--bg) 72%,transparent);padding:5px 9px;border-radius:999px}
+.vid .play{position:absolute;right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:color-mix(in srgb,var(--bg) 72%,transparent);display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+.pain{padding:26px 26px 24px}
+.pain .n{font:500 12px "Geist Mono",monospace;color:var(--acc)}
+.pain h3{font-size:22px;margin:12px 0 8px;line-height:1.15}
+.pain p{color:var(--muted);font-size:15px}
+.pain .data{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font:12px "Geist Mono",monospace;color:var(--dim)}
+.pain .data b{color:var(--ink);font-weight:500}
+.pain .bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);background-size:40% 100%;background-repeat:no-repeat;opacity:0;transition:opacity .6s}
+.pain.in .bar{opacity:.9;animation:scanx 3.2s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes scanx{0%{background-position:-60% 0}100%{background-position:160% 0}}
+.pain .viz{position:absolute;right:20px;top:18px;width:84px;height:48px;opacity:.95}
+.pain .viz *{fill:none;stroke:var(--acc);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pain .viz .g{stroke:var(--line2)}
+.pain .viz .d{stroke-dasharray:140;stroke-dashoffset:140}
+.pain.in .viz .d{animation:drw 2.4s var(--ease) .3s forwards}
+@keyframes drw{to{stroke-dashoffset:0}}
+.pain .viz .pulse{fill:var(--acc);stroke:none;transform-box:fill-box;transform-origin:center;animation:pls 1.8s ease-in-out infinite}
+@keyframes pls{50%{transform:scale(1.7);opacity:.4}}
+.pain .viz .orb{fill:var(--acc);stroke:none;offset-rotate:0deg;animation:orb 3s linear infinite}
+@keyframes orb{to{offset-distance:100%}}
+.pain .viz .fade{animation:fd 2.4s ease-in-out infinite}
+@keyframes fd{0%,100%{opacity:.25}50%{opacity:1}}
+.turn{margin-top:46px;font-size:clamp(24px,2.6vw,34px);letter-spacing:-.03em;line-height:1.2;max-width:860px}
+.turn em{font-style:normal;color:var(--acc)}
+
+.journey{margin-top:56px;position:relative}
+.jl{position:absolute;left:28px;right:28px;top:27px;height:2px;background:var(--line)}
+.jl i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--acc);transition:width 2.2s var(--ease)}
+.journey.in .jl i{width:100%}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+.st .dot{width:56px;height:56px;border-radius:50%;border:2px solid var(--line2);background:var(--bg);display:grid;place-items:center;font:500 13px "Geist Mono",monospace;color:var(--acc);margin-bottom:18px;transition:border-color .6s}
+.journey.in .st .dot{border-color:var(--acc)}
+.st h3{font-size:19px;margin-bottom:6px}
+.st p{color:var(--muted);font-size:14.5px}
+.st small{display:block;margin-top:10px;font:12px "Geist Mono",monospace;color:var(--dim)}
+.anal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.an{padding:26px}
+.an .ic{width:42px;height:42px;border-radius:12px;background:var(--acc-a);display:grid;place-items:center;color:var(--acc);margin-bottom:16px}
+.an h3{font-size:20px;margin-bottom:6px}.an p{color:var(--muted);font-size:15px}
+
+.rx{display:grid;grid-template-columns:.95fr 1.05fr}
+.rx-l{padding:46px;border-right:1px solid var(--line)}
+.rx-l h2{font-size:clamp(30px,3.4vw,44px)}
+.rx-l ul{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.rx-l li{display:flex;gap:12px;font-size:15.5px}.rx-l li svg{flex:none;color:var(--acc);margin-top:3px}
+.rx-r{padding:46px}
+.fsteps{display:flex;gap:6px;margin-bottom:26px}.fsteps i{flex:1;height:3px;border-radius:3px;background:var(--line2);transition:background .4s}.fsteps i.on{background:var(--acc)}
+.fpane{display:none}.fpane.on{display:block;animation:fi .5s var(--ease)}
+@keyframes fi{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.fpane h3{font-size:22px;margin-bottom:4px}.hint{color:var(--muted);font-size:14.5px;margin-bottom:22px}
+label.f{display:block;font-size:13.5px;color:var(--muted);margin-bottom:14px}
+label.f input{display:block;width:100%;margin-top:7px;background:var(--bg);border:1px solid var(--line2);color:var(--ink);font:15px Geist,sans-serif;padding:13px 14px;border-radius:10px;outline:none}
+label.f input:focus{border-color:var(--acc);box-shadow:0 0 0 4px var(--acc-a)}
+.ol{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:18px}
+.opt{border:1px solid var(--line2);background:var(--bg);border-radius:10px;padding:12px 13px;font:14.5px Geist,sans-serif;color:var(--ink);text-align:left;cursor:pointer}
+.opt.on{border-color:var(--acc);background:var(--acc-a)}
+.consent{display:flex;gap:10px;font-size:13px;color:var(--dim);margin:4px 0 16px}.consent input{margin-top:3px;accent-color:var(--acc)}
+.err{color:var(--red);font-size:13px;min-height:20px}
+.fnav{display:flex;justify-content:space-between;align-items:center}
+.back{background:none;border:none;color:var(--muted);font:14px Geist,sans-serif;cursor:pointer}
+.done{text-align:center;padding:36px 0}.done .ok{width:64px;height:64px;border-radius:50%;background:var(--acc-a);display:grid;place-items:center;margin:0 auto 18px;color:var(--acc)}
+
+.faq{max-width:820px;margin:44px auto 0}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;background:none;border:none;color:var(--ink);font:500 18px Geist,sans-serif;letter-spacing:-.02em;text-align:left;padding:22px 0;display:flex;justify-content:space-between;gap:20px;cursor:pointer}
+.qa .pl{width:26px;height:26px;border-radius:8px;border:1px solid var(--line2);display:grid;place-items:center;flex:none;transition:transform .4s var(--ease)}
+.qa.open .pl{transform:rotate(45deg);background:var(--acc);color:var(--on);border-color:var(--acc)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden;color:var(--muted);font-size:15.5px}.qa.open .ans>div{padding-bottom:22px}
+.lnk{color:var(--acc);border-bottom:1px solid var(--acc-a)}
+
+footer{border-top:1px solid var(--line);padding:38px 0 46px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font:12.5px "Geist Mono",monospace;color:var(--dim);line-height:1.8}
+.soc{display:flex;gap:8px;margin-bottom:10px}.soc a{display:inline-flex;align-items:center;gap:8px;color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:8px 13px;font:500 12.5px Geist,sans-serif;transition:border-color .3s,color .3s,transform .3s var(--ease)}.soc a:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}.soc svg{flex:none}
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:52px;height:52px;border-radius:16px;background:var(--acc);display:grid;place-items:center;color:var(--on);box-shadow:0 12px 36px -14px var(--acc)}
+
+
+/* ===== botão líquido (vivo): superfície SVG única com filtro gooey ===== */
+.lq{margin-right:10px;position:relative;display:inline-flex;align-items:center;justify-content:center;padding:16px 26px;font:500 15.5px Geist,sans-serif;color:var(--on);cursor:pointer;isolation:isolate;text-decoration:none}
+.lq .lqs{position:absolute;left:-40px;top:-40px;overflow:visible;z-index:-1;pointer-events:none}
+.lq .s1{stop-color:var(--lq1)}.lq .s2{stop-color:var(--lq1);transition:stop-color .7s var(--ease)}
+.lq:hover .s2{stop-color:var(--lq2)}
+.lq::after{content:"";position:absolute;inset:-16px;border-radius:999px;background:radial-gradient(closest-side,var(--lqg),transparent);opacity:0;transition:opacity .6s;z-index:-2;filter:blur(12px)}
+.lq:hover::after{opacity:1}
+.lq .lt{position:relative;display:inline-flex;gap:10px;align-items:center}
+.lq .lt .arr{transition:transform .5s var(--ease)}.lq:hover .lt .arr{transform:translateX(4px)}
+:root{--lq1:#cfff3e;--lq2:#2ff0b5;--lqg:rgba(207,255,62,.4)}
+/* ===== vídeo sem moldura ===== */
+.vid{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;-webkit-mask:radial-gradient(ellipse 62% 58% at 50% 50%,#000 40%,transparent 100%);mask:radial-gradient(ellipse 62% 58% at 50% 50%,#000 40%,transparent 100%);transform:scale(1.12);transform-origin:center}
+.vid .lbl{display:none}
+.snd{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font:500 12px "Geist Mono",monospace;color:var(--muted);background:none;border:1px solid var(--line2);border-radius:999px;padding:7px 12px;cursor:pointer}
+.snd:hover{color:var(--ink)}.snd-on{color:var(--on);background:var(--acc);border-color:var(--acc)}.snd-on:hover{color:var(--on)}
+@media(max-width:960px){.vid{transform:none}}
+
+@media(max-width:960px){.hero .wrap,.rx{grid-template-columns:1fr}.pain-grid,.anal{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr;gap:22px}.jl{display:none}.nl{display:none}.rx-l{border-right:none;border-bottom:1px solid var(--line)}.hero{padding-top:120px}}
+@media(max-width:620px){.navic{display:none}.pain-grid,.anal{grid-template-columns:1fr}section{padding:80px 0}.rx-l,.rx-r{padding:28px}.opts{grid-template-columns:1fr}.wrap{padding:0 20px}nav .btn{padding:9px 12px}}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="chk" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="phi" viewBox="0 0 46 62"><circle cx="23" cy="34" r="15" fill="none" stroke-width="5"/><line x1="23" y1="6" x2="23" y2="60" stroke-width="5"/></symbol></svg>
+
+<nav id="nav">
+  <a href="#" class="logo">code<svg class="sym" width="16" height="22"><use href="#phi"/></svg></a>
+  <div class="nl"><a href="#dores">Dores</a><a href="#como-funciona">Como funciona</a><a href="#raio-x">Raio-X</a><a href="#duvidas">Dúvidas</a></div>
+  <span style="display:flex;gap:6px;align-items:center"><a class="navic" href="https://www.instagram.com/codevitruvian/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a class="navic" href="https://www.linkedin.com/company/code-phi/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg></a><a href="#raio-x" class="btn btn-acc">Raio-X grátis →</a></span>
+</nav>
+
+<header class="hero">
+  <div class="gridbg"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="d"></span>Cresça com método</div>
+      <h1>Seu negócio investe mais <em>e vende igual?</em></h1>
+      <p class="sub">O problema quase nunca é uma peça só. A Code ϕ olha o seu negócio inteiro, do anúncio à recompra, e corrige o que trava o crescimento com dados, não com achismo.</p>
+      <div class="ctas"><a href="#raio-x" class="lq"><span class="lt">Agendar meu Raio-X grátis <span class="arr">→</span></span></a><a href="#dores" class="btn btn-ghost">É o meu caso?</a></div>
+      <div class="chips"><span><svg width="15" height="15"><use href="#chk"/></svg>Grátis, sem compromisso</span><span><svg width="15" height="15"><use href="#chk"/></svg>Loja, serviço ou negócio local</span><span><svg width="15" height="15"><use href="#chk"/></svg>Decisão pelo caixa</span></div>
+    </div>
+    <div class="vcol reveal"><div class="vid">
+      <video id="vid" muted playsinline loop preload="none" poster="poster-lima.jpg" aria-label="Vídeo de 37 segundos: como a Code ϕ trabalha"></video>
+      <span class="lbl">como funciona · 37 s</span>
+    </div><div style="text-align:center;display:flex;gap:8px;justify-content:center"><button class="snd snd-on" id="vs" aria-label="Ouvir com narração"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path id="vsw" d="M16 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span id="vst">ouvir com narração</span></button><button class="snd" id="vp" aria-label="Pausar ou tocar o vídeo"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" id="vpi"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg><span id="vpt">pausar</span></button></div></div>
+  </div>
+</header>
+
+<section id="dores" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="d"></span>Se o seu negócio está assim</div>
+    <h2 class="reveal d1">Não é falta de esforço. <span class="m">É falta de sistema.</span></h2>
+    <div class="pain-grid">
+      <div class="card pain reveal"><span class="n">01</span><svg class="viz" viewBox="0 0 84 48"><path class="g" d="M2 46H82"/><path class="d" d="M2 30 L22 20 L40 26 L58 24 L82 25"/><circle class="pulse" cx="82" cy="25" r="3"/></svg><h3>O faturamento parou</h3><p>Os meses se repetem. Você mexe em campanha, troca criativo, faz promoção, e o número não sai do lugar.</p><span class="bar"></span></div>
+      <div class="card pain reveal d1"><span class="n">02</span><svg class="viz" viewBox="0 0 84 48"><path class="g" d="M2 46H82"/><path class="d" d="M2 42 L20 38 L38 30 L56 22 L82 6"/><path d="M74 6h8v8"/></svg><h3>O anúncio ficou caro</h3><p>Para vender o mesmo, a verba sobe todo mês. O custo de mídia come a margem antes de o pedido chegar.</p><div class="data">CPM médio das campanhas: <b>+20%</b> em 2025 · Triple Whale</div><span class="bar"></span></div>
+      <div class="card pain reveal d2"><span class="n">03</span><svg class="viz" viewBox="0 0 84 48"><rect class="g" x="2" y="6" width="44" height="36" rx="6"/><path class="fade" d="M50 24h30M72 16l8 8-8 8"/><circle class="pulse" cx="24" cy="24" r="3"/></svg><h3>O cliente chega e não fecha</h3><p>A visita ou a mensagem chega, mas trava no site, no atendimento ou no preço. O dinheiro do anúncio morre no caminho.</p><div class="data"><b>70%</b> dos carrinhos são abandonados · Baymard</div><span class="bar"></span></div>
+      <div class="card pain reveal"><span class="n">04</span><svg class="viz" viewBox="0 0 84 48"><path class="g" d="M42 6a18 18 0 1 1-17.6 21.6"/><path class="d" d="M42 6a18 18 0 0 0-17.6 21.6"/><circle class="orb" r="3" style="offset-path:path('M42 6a18 18 0 1 1 -0.01 0')"/></svg><h3>O cliente não volta</h3><p>Quem comprou uma vez some. O negócio paga de novo para conquistar alguém que já era dele.</p><span class="bar"></span></div>
+      <div class="card pain reveal d1"><span class="n">05</span><svg class="viz" viewBox="0 0 84 48"><path class="g" d="M2 46H82"/><rect class="d" x="8" y="26" width="12" height="20"/><rect class="d" x="28" y="18" width="12" height="28"/><rect class="d" x="48" y="10" width="12" height="36"/><circle class="pulse" cx="72" cy="8" r="3"/></svg><h3>Os custos só sobem</h3><p>Frete, ferramenta, desconto e mídia apertam. Você vende, mas sobra cada vez menos.</p><span class="bar"></span></div>
+      <div class="card pain reveal d2"><span class="n">06</span><svg class="viz" viewBox="0 0 84 48"><path class="d" d="M2 24 C 16 8, 28 40, 42 24 S 68 8, 82 24"/><path class="g" d="M2 24H82"/><circle class="orb" r="3" style="offset-path:path('M2 24 C 16 8, 28 40, 42 24 S 68 8, 82 24')"/></svg><h3>Andando de lado, sem plano</h3><p>Falta ideia nova e falta prioridade. Tudo parece urgente, nada vira estratégia.</p><span class="bar"></span></div>
+    </div>
+    <p class="turn reveal">Cada dor dessas nasce num ponto diferente da loja. <em>Por isso a gente olha todos ao mesmo tempo.</em></p>
+  </div>
+</section>
+
+<section id="como-funciona" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="d"></span>Code ϕ 360</div>
+    <h2 class="reveal d1">Do cliente frio à recompra, <span class="m">cada ponto medido.</span></h2>
+    <p class="sub reveal d2">A gente trabalha 100% em cima de dado. Olha a jornada inteira, acha onde a receita vaza e corrige na ordem que dá resultado primeiro.</p>
+    <div class="journey reveal" id="journey"><div class="jl"><i></i></div>
+      <div class="steps">
+        <div class="st"><div class="dot">01</div><h3>Atrair</h3><p>Anúncio para o público certo, com a oferta certa.</p><small>custo por visita útil</small></div>
+        <div class="st"><div class="dot">02</div><h3>Converter</h3><p>Site, atendimento e oferta sem atrito.</p><small>taxa de conversão</small></div>
+        <div class="st"><div class="dot">03</div><h3>Recuperar</h3><p>Quem saiu sem comprar volta por e-mail e WhatsApp.</p><small>receita recuperada</small></div>
+        <div class="st"><div class="dot">04</div><h3>Reconhecer</h3><p>Base dividida por comportamento: cada cliente recebe a mensagem dele.</p><small>clientes ativos</small></div>
+        <div class="st"><div class="dot">05</div><h3>Fazer voltar</h3><p>Pós-compra e recompra rodando todo mês, sem depender de anúncio.</p><small>receita de recompra</small></div>
+      </div>
+    </div>
+    <div class="anal">
+      <div class="card an reveal"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div><h3>Números reais primeiro</h3><p>Faturamento, margem e ticket da loja, cruzados com o que a plataforma de anúncio diz que vendeu. Decisão pelo caixa.</p></div>
+      <div class="card an reveal d1"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Cada conversão, isolada</h3><p>Anúncio, página de produto, carrinho, checkout e pós-compra, cada um com seu número.</p></div>
+      <div class="card an reveal d2"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div><h3>Plano em ordem de impacto</h3><p>O que resolver nesta semana, neste mês e no trimestre. Revisado toda semana com você.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="raio-x" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="card rx reveal">
+      <div class="rx-l">
+        <div class="eyebrow"><span class="d"></span>Raio-X gratuito</div>
+        <h2>Descubra onde o seu negócio perde cliente.</h2>
+        <ul>
+          <li><svg width="17" height="17"><use href="#chk"/></svg>O negócio visto como o cliente vê: anúncio, site e atendimento</li>
+          <li><svg width="17" height="17"><use href="#chk"/></svg>Os pontos onde a receita vaza, em ordem de impacto</li>
+          <li><svg width="17" height="17"><use href="#chk"/></svg>O que resolver nesta semana</li>
+          <li><svg width="17" height="17"><use href="#chk"/></svg>Conversa de 30 minutos com quem analisou</li>
+        </ul>
+        <a href="#" class="btn btn-ghost tf" data-tf style="margin-top:30px">Prefere agendar direto? Abrir agenda →</a>
+      </div>
+      <div class="rx-r">
+        <div class="fsteps" id="fsteps"><i class="on"></i><i></i><i></i></div>
+        <form id="rxForm" novalidate>
+          <div class="fpane on"><h3>Sobre a loja</h3><p class="hint">Para a gente olhar antes da conversa.</p>
+            <label class="f">Endereço do site<input name="site" placeholder="sualoja.com.br" autocomplete="url"></label>
+            <div class="ol">Plataforma</div><div class="opts" data-name="plataforma"><button type="button" class="opt">Shopify</button><button type="button" class="opt">Loja Integrada</button><button type="button" class="opt">Nuvemshop</button><button type="button" class="opt">Outra</button></div></div>
+          <div class="fpane"><h3>Momento da loja</h3><p class="hint">Faixas aproximadas bastam.</p>
+            <div class="ol">Faturamento mensal</div><div class="opts" data-name="faturamento"><button type="button" class="opt">Até R$ 30 mil</button><button type="button" class="opt">R$ 30–100 mil</button><button type="button" class="opt">R$ 100–300 mil</button><button type="button" class="opt">Acima de R$ 300 mil</button></div>
+            <div class="ol">O que mais pesa hoje</div><div class="opts" data-name="dor"><button type="button" class="opt">Faturamento parado</button><button type="button" class="opt">Anúncio caro</button><button type="button" class="opt">Visita que não compra</button><button type="button" class="opt">Cliente que não volta</button></div></div>
+          <div class="fpane"><h3>Para onde enviamos</h3><p class="hint">Só usamos para falar do seu Raio-X.</p>
+            <label class="f">Seu nome<input name="nome" autocomplete="name"></label>
+            <label class="f">WhatsApp<input name="whatsapp" inputmode="tel" placeholder="(11) 90000-0000" autocomplete="tel"></label>
+            <label class="consent"><input type="checkbox" name="lgpd">Concordo em ser contatado sobre o Raio-X. Meus dados não serão compartilhados.</label></div>
+          <div class="fpane"><div class="done"><div class="ok"><svg width="28" height="28"><use href="#chk"/></svg></div><h3>Pedido recebido.</h3><p class="hint" style="margin:6px auto 0;max-width:340px">Vamos chamar você no WhatsApp para combinar a conversa.</p></div></div>
+          <div class="err" id="err"></div>
+          <div class="fnav" id="fnav"><button type="button" class="back" id="fBack" style="visibility:hidden">← Voltar</button><button type="button" class="btn btn-acc" id="fNext">Continuar →</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="reveal" style="text-align:center;margin:0 auto">Dúvidas</h2>
+    <div class="faq">
+      <div class="qa reveal"><button>O Raio-X é mesmo grátis?<span class="pl">+</span></button><div class="ans"><div>Sim. O relatório fica com você, contratando ou não. Se fizer sentido seguir, a proposta sai depois, com o que a sua loja precisa.</div></div></div>
+      <div class="qa reveal"><button>Vocês só fazem anúncio?<span class="pl">+</span></button><div class="ans"><div>Não. A gente cuida da jornada inteira: anúncio, site e conversão, CRM e recompra. O anúncio é uma peça; o resultado vem de todas juntas.</div></div></div>
+      <div class="qa reveal"><button>Vou precisar gravar vídeo ou aparecer?<span class="pl">+</span></button><div class="ans"><div>Não. Fazemos a direção estratégica dos criativos, com referências e o porquê de cada teste. O formato se adapta ao que a sua marca já produz.</div></div></div>
+      <div class="qa reveal"><button>O preço aparece no site?<span class="pl">+</span></button><div class="ans"><div>Não. Cada loja tem um ponto de partida diferente, então a proposta sai depois do Raio-X.</div></div></div>
+      <div class="qa reveal"><button>Quem está por trás da Code ϕ?<span class="pl">+</span></button><div class="ans"><div>A Code ϕ é conduzida por <b style="color:var(--ink);font-weight:500">Vinícius Duarte</b>, estrategista de crescimento. Ele participa do Raio-X e das reuniões de resultado. <a class="lnk" href="https://www.linkedin.com/in/viniciusduarteb/" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div><span class="logo" style="font-size:19px;color:var(--ink)">code<svg class="sym" width="13" height="18"><use href="#phi"/></svg></span><br>Code ϕ é marca da Code Vitruvian Comunicação e Mídia Ltda · CNPJ 48.418.062/0001-44</div>
+  <div><div class="soc"><a href="https://www.instagram.com/codevitruvian/" target="_blank" rel="noopener" aria-label="Instagram da Code"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a><a href="https://www.linkedin.com/company/code-phi/" target="_blank" rel="noopener" aria-label="LinkedIn da Code"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4z"/></svg><span>LinkedIn</span></a><a href="#" data-yt target="_blank" rel="noopener" aria-label="YouTube da Code" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.5 3.1Z"/></svg><span>YouTube</span></a><a href="https://wa.me/5537991536088?text=Oi!%20Vim%20pelo%20site%20da%20Code%20e%20quero%20meu%20Raio-X." target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg><span>WhatsApp</span></a></div>© 2026 Code ϕ</div>
+  </div></footer>
+
+
+<a class="wa" href="https://wa.me/5537991536088?text=Oi!%20Vim%20pelo%20site%20da%20Code%20e%20quero%20meu%20Raio-X." target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="25" height="25" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg></a>
+
+<script>
+const gelo=false;
+document.querySelector('meta[name=theme-color]').content=gelo?'#f3f3ef':'#08080a';
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('on',scrollY>20),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// vídeo: só baixa e toca quando aparece na tela; pausa ao sair
+const v=document.getElementById('vid'),vp=document.getElementById('vp'),vpi=document.getElementById('vpi'),nm=gelo?'gelo':'lima';v.poster=`poster-${nm}.jpg`;
+let userPaused=false;const icon=()=>vpi.innerHTML=v.paused?'<path d="M7 5v14l12-7z"/>':'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;const load=()=>{if(!v.src)v.src=`como-funciona-${nm}.mp4`};
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){load();if(!userPaused&&!still)v.play().catch(()=>{})}else v.pause()}),{threshold:.4}).observe(v);
+v.addEventListener('play',icon);v.addEventListener('pause',icon);
+const vpt=document.getElementById('vpt');const lab=()=>vpt.textContent=v.paused?'tocar':'pausar';v.addEventListener('play',lab);v.addEventListener('pause',lab);
+vp.onclick=()=>{load();if(v.paused){userPaused=false;v.play()}else{userPaused=true;v.pause()}};
+
+// ---------- botão líquido: bolhas com mola, dentro de um filtro gooey ----------
+(()=>{const NS='http://www.w3.org/2000/svg',RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.lq').forEach((btn,k)=>{
+  const svg=document.createElementNS(NS,'svg');svg.classList.add('lqs');const P=40;
+  svg.innerHTML=`<defs><linearGradient id="lqgr${k}" gradientUnits="userSpaceOnUse"><stop offset="0" class="s1"/><stop offset="1" class="s2"/></linearGradient><filter id="lqgo${k}" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></defs><g filter="url(#lqgo${k})" fill="url(#lqgr${k})"><rect/><circle/><circle/><circle/><circle/><circle/></g>`;
+  btn.prepend(svg);const rect=svg.querySelector('rect'),cs=[...svg.querySelectorAll('circle')],gr=svg.querySelector('linearGradient'),fl=svg.querySelector('filter');
+  let W=0,H=0;const size=()=>{const r=btn.getBoundingClientRect();W=r.width;H=r.height;svg.setAttribute('width',W+P*2);svg.setAttribute('height',H+P*2);
+    rect.setAttribute('x',P);rect.setAttribute('y',P);rect.setAttribute('width',W);rect.setAttribute('height',H);rect.setAttribute('rx',H/2);
+    gr.setAttribute('x1',P);gr.setAttribute('x2',P+W);fl.setAttribute('x',0);fl.setAttribute('y',0);fl.setAttribute('width',W+P*2);fl.setAttribute('height',H+P*2)};
+  size();addEventListener('resize',size);
+  // cada bolha: posição atual, velocidade e alvo (em px relativos ao centro do botão)
+  const B=cs.map((c,i)=>({c,x:0,y:0,vx:0,vy:0,r:H*.42,tr:H*.42}));
+  let hover=false,mx=0,my=0,t0=performance.now();
+  btn.addEventListener('pointerenter',()=>hover=true);btn.addEventListener('pointerleave',()=>hover=false);
+  btn.addEventListener('pointermove',e=>{const r=btn.getBoundingClientRect();mx=e.clientX-r.left-W/2;my=e.clientY-r.top-H/2});
+  function targets(t){const w=W/2,h=H/2,s=Math.sin;
+    if(!hover)return[[-w+h*.55+s(t*1.3)*2,s(t*1.7)*1.5,h*.9],[w-h*.55+s(t*1.1+1)*2,s(t*1.5+2)*1.5,h*.9],[s(t*.9)*w*.4,0,h*.85],[s(t*.7+2)*w*.3,0,h*.8],[0,0,h*.6]];
+    return[[-w+h*.1+s(t*2.1)*3,-h*.2+s(t*2.7)*3,h*1.0],[w-h*.15+s(t*1.9+1)*3,h*.15+s(t*2.3)*3,h*1.05],[-w*.15+s(t*1.6)*6,-h*.95+s(t*2.4)*2,h*.78],[w*.3+s(t*1.4+2)*6,h*.85+s(t*2)*2,h*.72],[Math.max(-w,Math.min(w,mx)),Math.max(-h*1.2,Math.min(h*1.2,my)),h*.8]]}
+  let last=0;(function loop(now){const dt=Math.min(.033,(now-(last||now))/1000)||.016;last=now;const t=(now-t0)/1000,T=targets(RM?0:t);
+    B.forEach((b,i)=>{const [tx,ty,tr]=T[i],k=hover?120:70,d=hover?11:12;b.vx+=((tx-b.x)*k-b.vx*d)*dt;b.vy+=((ty-b.y)*k-b.vy*d)*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;b.r+=(tr-b.r)*Math.min(1,dt*8);
+      b.c.setAttribute('cx',(P+W/2+b.x).toFixed(1));b.c.setAttribute('cy',(P+H/2+b.y).toFixed(1));b.c.setAttribute('r',Math.max(0,b.r).toFixed(1))});
+    requestAnimationFrame(loop)})(performance.now());
+});})();
+
+// Typeform: com o link preenchido, os botões de agendar abrem o Typeform
+if(window.YOUTUBE_URL){document.querySelectorAll('[data-yt]').forEach(a=>{a.href=window.YOUTUBE_URL;a.style.display=''})}
+if(window.TYPEFORM_URL){document.querySelectorAll('[data-tf], .lq, nav .btn').forEach(a=>{a.href=window.TYPEFORM_URL;a.target='_blank';a.rel='noopener'})}else{document.querySelectorAll('[data-tf]').forEach(a=>a.style.display='none')}
+
+// som: primeiro clique liga a narração e volta o vídeo ao início
+const vs=document.getElementById('vs'),vst=document.getElementById('vst');
+vs.onclick=()=>{load();if(v.muted){v.muted=false;v.currentTime=0;v.loop=false;userPaused=false;v.play();vst.textContent='tirar som';vs.classList.remove('snd-on')}else{v.muted=true;v.loop=true;vst.textContent='ouvir com narração';vs.classList.add('snd-on')}};
+v.addEventListener('ended',()=>{v.muted=true;v.loop=true;v.play();vst.textContent='ouvir com narração';vs.classList.add('snd-on')});
+
+// ---------- eventos do pixel ----------
+const fbqT=(n,p)=>{try{window.fbq&&fbq('track',n,p||{})}catch(e){}};
+document.querySelectorAll('a[href*="wa.me"]').forEach(a=>a.addEventListener('click',()=>fbqT('Contact',{content_name:'WhatsApp'})));
+document.querySelectorAll('[data-tf]').forEach(a=>a.addEventListener('click',()=>fbqT('Schedule')));
+document.getElementById('vs')&&document.getElementById('vs').addEventListener('click',()=>fbqT('ViewContent',{content_name:'Video como funciona'}),{once:true});
+document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+(()=>{const f=document.getElementById('rxForm'),panes=[...f.querySelectorAll('.fpane')],bars=[...document.querySelectorAll('#fsteps i')],next=document.getElementById('fNext'),back=document.getElementById('fBack'),err=document.getElementById('err');let st=0;const data={};
+f.querySelectorAll('.opts').forEach(g=>g.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{g.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');data[g.dataset.name]=o.textContent;err.textContent=''}));
+function show(i){panes.forEach((p,j)=>p.classList.toggle('on',j===i));bars.forEach((b,j)=>b.classList.toggle('on',j<=Math.min(i,2)));back.style.visibility=i>0&&i<3?'visible':'hidden';next.textContent=i===2?'Pedir Raio-X →':'Continuar →';document.getElementById('fnav').style.display=i===3?'none':'flex';st=i}
+function valid(){if(st===0){if(!f.site.value.trim())return'Informe o endereço do site.';if(!data.plataforma)return'Escolha a plataforma.'}
+ if(st===1){if(!data.faturamento||!data.dor)return'Escolha uma opção em cada pergunta.'}
+ if(st===2){if(!f.nome.value.trim())return'Informe seu nome.';if(f.whatsapp.value.replace(/\D/g,'').length<10)return'Confira o WhatsApp com DDD.';if(!f.lgpd.checked)return'Precisamos do seu aceite para entrar em contato.'}return''}
+next.onclick=()=>{const m=valid();err.textContent=m;if(m)return;if(st===2){fbqT('Lead',{content_name:'Raio-X',status:data.dor||''});data.site=f.site.value.trim();data.nome=f.nome.value.trim();data.whatsapp=f.whatsapp.value.trim();
+ }show(st+1)};
+back.onclick=()=>show(Math.max(0,st-1));
+f.whatsapp.addEventListener('input',e=>{let x=e.target.value.replace(/\D/g,'').slice(0,11);if(x.length>6)x=`(${x.slice(0,2)}) ${x.slice(2,x.length-4)}-${x.slice(-4)}`;else if(x.length>2)x=`(${x.slice(0,2)}) ${x.slice(2)}`;e.target.value=x});
+f.addEventListener('submit',e=>{e.preventDefault();next.click()})})();
+</script>
+</body>
+</html>
