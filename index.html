@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com; media-src 'self'; connect-src 'self' https://www.facebook.com https://connect.facebook.net; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com; media-src 'self'; connect-src 'self' https://www.facebook.com https://connect.facebook.net https://docs.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Code ϕ — Cresça com método</title>
 <meta name="description" content="Seu negócio investe mais e vende igual? A Code ϕ olha o negócio inteiro, do anúncio à recompra, e corrige o que trava o crescimento com dados. Comece pelo Raio-X gratuito.">
@@ -246,10 +246,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
       <div class="rx-r">
         <div class="fsteps" id="fsteps"><i class="on"></i><i></i><i></i></div>
         <form id="rxForm" novalidate>
-          <div class="fpane on"><h3>Sobre a loja</h3><p class="hint">Para a gente olhar antes da conversa.</p>
-            <label class="f">Endereço do site<input name="site" placeholder="sualoja.com.br" autocomplete="url"></label>
-            <div class="ol">Plataforma</div><div class="opts" data-name="plataforma"><button type="button" class="opt">Shopify</button><button type="button" class="opt">Loja Integrada</button><button type="button" class="opt">Nuvemshop</button><button type="button" class="opt">Outra</button></div></div>
-          <div class="fpane"><h3>Momento da loja</h3><p class="hint">Faixas aproximadas bastam.</p>
+          <div class="fpane on"><h3>Sobre o negócio</h3><p class="hint">Para a gente olhar antes da conversa.</p>
+            <label class="f">Site ou @ do Instagram<input name="site" placeholder="seunegocio.com.br ou @seunegocio" autocomplete="url"></label>
+            <div class="ol">Tipo de negócio</div><div class="opts" data-name="tipo"><button type="button" class="opt">Loja online</button><button type="button" class="opt">Negócio local</button><button type="button" class="opt">Serviços</button><button type="button" class="opt">Outro</button></div>
+            <div class="ol">O que você procura</div><div class="opts" data-name="interesse"><button type="button" class="opt">Anúncios</button><button type="button" class="opt">CRM e recompra</button><button type="button" class="opt">Site e conversão</button><button type="button" class="opt">Ainda não sei</button></div></div>
+          <div class="fpane"><h3>Momento do negócio</h3><p class="hint">Faixas aproximadas bastam.</p>
             <div class="ol">Faturamento mensal</div><div class="opts" data-name="faturamento"><button type="button" class="opt">Até R$ 30 mil</button><button type="button" class="opt">R$ 30–100 mil</button><button type="button" class="opt">R$ 100–300 mil</button><button type="button" class="opt">Acima de R$ 300 mil</button></div>
             <div class="ol">O que mais pesa hoje</div><div class="opts" data-name="dor"><button type="button" class="opt">Faturamento parado</button><button type="button" class="opt">Anúncio caro</button><button type="button" class="opt">Visita que não compra</button><button type="button" class="opt">Cliente que não volta</button></div></div>
           <div class="fpane"><h3>Para onde enviamos</h3><p class="hint">Só usamos para falar do seu Raio-X.</p>
@@ -334,6 +335,8 @@ const vs=document.getElementById('vs'),vst=document.getElementById('vst');
 vs.onclick=()=>{load();if(v.muted){v.muted=false;v.currentTime=0;v.loop=false;userPaused=false;v.play();vst.textContent='tirar som';vs.classList.remove('snd-on')}else{v.muted=true;v.loop=true;vst.textContent='ouvir com narração';vs.classList.add('snd-on')}};
 v.addEventListener('ended',()=>{v.muted=true;v.loop=true;v.play();vst.textContent='ouvir com narração';vs.classList.add('snd-on')});
 
+// ---------- envio do lead (Google Forms → planilha Code Phi · Leads Raio-X) ----------
+window.enviarLead=d=>{const E={nome:44958413,whatsapp:66431530,email:1854588250,negocio:1117726794,tipo:2044299784,interesse:156359449,trava:1143291973,investimento:1288559981,faturamento:1624348250,plataforma:1831132350,prazo:591225024,resultado:1936739677,origem:1027363095};const q=new URLSearchParams(location.search);d.origem=[d.origem,q.get('utm_source'),q.get('utm_campaign')].filter(Boolean).join(' · ');const b=new URLSearchParams();for(const k in d)if(d[k]&&E[k])b.append('entry.'+E[k],String(d[k]).slice(0,500));return fetch('https://docs.google.com/forms/d/e/1FAIpQLSd2a1GVf9s57I5qFCUW-_2ThZ2ZNvFyxBTmgMbAGRV8k3grbA/formResponse',{method:'POST',mode:'no-cors',body:b}).catch(()=>{})};
 // ---------- eventos do pixel ----------
 const fbqT=(n,p)=>{try{window.fbq&&fbq('track',n,p||{})}catch(e){}};
 document.querySelectorAll('a[href*="wa.me"]').forEach(a=>a.addEventListener('click',()=>fbqT('Contact',{content_name:'WhatsApp'})));
@@ -343,11 +346,11 @@ document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>b.parentElement
 (()=>{const f=document.getElementById('rxForm'),panes=[...f.querySelectorAll('.fpane')],bars=[...document.querySelectorAll('#fsteps i')],next=document.getElementById('fNext'),back=document.getElementById('fBack'),err=document.getElementById('err');let st=0;const data={};
 f.querySelectorAll('.opts').forEach(g=>g.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{g.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));o.classList.add('on');data[g.dataset.name]=o.textContent;err.textContent=''}));
 function show(i){panes.forEach((p,j)=>p.classList.toggle('on',j===i));bars.forEach((b,j)=>b.classList.toggle('on',j<=Math.min(i,2)));back.style.visibility=i>0&&i<3?'visible':'hidden';next.textContent=i===2?'Pedir Raio-X →':'Continuar →';document.getElementById('fnav').style.display=i===3?'none':'flex';st=i}
-function valid(){if(st===0){if(!f.site.value.trim())return'Informe o endereço do site.';if(!data.plataforma)return'Escolha a plataforma.'}
+function valid(){if(st===0){if(!f.site.value.trim())return'Informe o site ou o @.';if(!data.tipo||!data.interesse)return'Escolha uma opção em cada pergunta.'}
  if(st===1){if(!data.faturamento||!data.dor)return'Escolha uma opção em cada pergunta.'}
  if(st===2){if(!f.nome.value.trim())return'Informe seu nome.';if(f.whatsapp.value.replace(/\D/g,'').length<10)return'Confira o WhatsApp com DDD.';if(!f.lgpd.checked)return'Precisamos do seu aceite para entrar em contato.'}return''}
 next.onclick=()=>{const m=valid();err.textContent=m;if(m)return;if(st===2){fbqT('Lead',{content_name:'Raio-X',status:data.dor||''});data.site=f.site.value.trim();data.nome=f.nome.value.trim();data.whatsapp=f.whatsapp.value.trim();
- }show(st+1)};
+ enviarLead({nome:data.nome,whatsapp:data.whatsapp,negocio:data.site,tipo:data.tipo,interesse:data.interesse,trava:data.dor,faturamento:data.faturamento,origem:'site · formulário da home'})}show(st+1)};
 back.onclick=()=>show(Math.max(0,st-1));
 f.whatsapp.addEventListener('input',e=>{let x=e.target.value.replace(/\D/g,'').slice(0,11);if(x.length>6)x=`(${x.slice(0,2)}) ${x.slice(2,x.length-4)}-${x.slice(-4)}`;else if(x.length>2)x=`(${x.slice(0,2)}) ${x.slice(2)}`;e.target.value=x});
 f.addEventListener('submit',e=>{e.preventDefault();next.click()})})();
