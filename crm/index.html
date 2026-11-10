@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://www.facebook.com; media-src 'self'; connect-src 'self' https://www.facebook.com https://connect.facebook.net https://docs.google.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRM e recompra para e-commerce · Code ϕ</title>
+<meta name="description" content="Seus clientes já compraram. A Code ϕ monta e opera o CRM da sua loja: segmentação, réguas automáticas de e-mail e WhatsApp e campanhas para o cliente voltar a comprar.">
+<meta property="og:title" content="CRM e recompra para e-commerce · Code ϕ"><meta property="og:image" content="https://codephi.com.br/poster-lima.jpg">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#08080a"><meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Meta Pixel · Code Phi - Site -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2370723583675147');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=2370723583675147&ev=PageView&noscript=1"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080a;--card:#111114;--card2:#16161a;--line:#222228;--line2:#2e2e36;--ink:#f1f1ec;--muted:#9a9aa3;--dim:#74747c;--acc:#cfff3e;--on:#0a0a0a;--ease:cubic-bezier(.16,1,.3,1)}
+*{box-sizing:border-box;margin:0;padding:0}html{color-scheme:dark;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Geist,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.gr{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:72px 72px;-webkit-mask:radial-gradient(ellipse 70% 60% at 60% 30%,#000 10%,transparent 75%);opacity:.6}
+nav{position:sticky;top:0;z-index:20;background:rgba(8,8,10,.72);backdrop-filter:blur(14px);border-bottom:1px solid transparent}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{display:inline-flex;align-items:center;gap:3px;font-weight:500;font-size:22px;letter-spacing:-.045em}.logo svg{stroke:var(--acc)}
+.nl{display:flex;gap:26px;font-size:14.5px;color:var(--muted)}.nl a:hover{color:var(--ink)}
+@media(max-width:820px){.nl{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 15.5px Geist,sans-serif;border:0;border-radius:12px;padding:15px 22px;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,background .3s}
+.btn-a{background:var(--acc);color:var(--on)}.btn-a:hover{transform:translateY(-2px);box-shadow:0 14px 34px -14px rgba(207,255,62,.7)}
+.btn-g{background:transparent;color:var(--ink);border:1px solid var(--line2)}.btn-g:hover{border-color:var(--dim)}
+.btn-s{padding:10px 16px;font-size:14px}
+.eb{display:inline-flex;align-items:center;gap:9px;font:500 12.5px "Geist Mono",monospace;color:var(--acc);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}.eb i{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+h1{font-weight:500;font-size:clamp(42px,6.2vw,78px);line-height:1;letter-spacing:-.05em}
+h2{font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.04;letter-spacing:-.04em;max-width:820px}
+h1 em,h2 em,h3 em{font-style:normal;color:var(--acc)}
+.sub{color:var(--muted);font-size:19px;max-width:560px;margin-top:22px;line-height:1.55}
+section{position:relative;padding:110px 0}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+/* hero */
+.hero{padding:70px 0 90px;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+@media(max-width:920px){.hg{grid-template-columns:1fr}}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font:500 12.5px "Geist Mono",monospace;color:var(--muted)}.trust span::before{content:"✓ ";color:var(--acc)}
+.vizold{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center}
+.viz canvas{width:100%;height:100%;display:block}
+.viz .lg{position:absolute;left:0;right:0;bottom:-6px;display:flex;justify-content:center;gap:18px;font:500 12px "Geist Mono",monospace;color:var(--muted)}
+.viz .lg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.kpi{position:absolute;padding:12px 14px;border-radius:14px;background:rgba(17,17,20,.86);border:1px solid var(--line2);backdrop-filter:blur(8px);font-size:13px}
+.kpi b{display:block;font:600 22px Geist;letter-spacing:-.03em}.kpi small{color:var(--dim);font-family:"Geist Mono",monospace;font-size:11px}
+.kpi.k1{top:8%;right:-2%}.kpi.k2{bottom:14%;left:-2%}
+.kpi b em{color:var(--acc);font-style:normal}
+/* dores */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+@media(max-width:920px){.cards{grid-template-columns:1fr}}
+.cd{position:relative;padding:26px;border-radius:18px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:border-color .3s,transform .4s var(--ease)}
+.cd:hover{border-color:var(--line2);transform:translateY(-3px)}
+.cd .n{font:500 12px "Geist Mono",monospace;color:var(--dim)}
+.cd h3{font-weight:500;font-size:22px;letter-spacing:-.025em;line-height:1.2;margin-top:14px}
+.cd p{color:var(--muted);font-size:15px;margin-top:10px}
+.cd .bar{height:4px;border-radius:4px;background:var(--line);margin-top:20px;overflow:hidden}.cd .bar i{display:block;height:100%;width:0;background:var(--acc);box-shadow:0 0 10px var(--acc);transition:width 1.6s var(--ease)}
+.cd.in .bar i{width:var(--w)}
+.big{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:60px;padding:40px;border-radius:22px;border:1px solid var(--line2);background:radial-gradient(ellipse 60% 120% at 0% 50%,rgba(207,255,62,.09),transparent 60%),var(--card)}
+@media(max-width:760px){.big{grid-template-columns:1fr}}
+.big .num{font:700 clamp(80px,11vw,140px)/.85 Geist;letter-spacing:-.07em;color:var(--acc)}
+.big p{font-size:22px;letter-spacing:-.02em;line-height:1.35}.big small{display:block;color:var(--dim);font:500 12px "Geist Mono",monospace;margin-top:12px}
+/* segmentos */
+.seg{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:50px}
+@media(max-width:980px){.seg{grid-template-columns:repeat(2,1fr)}}
+.sg{padding:22px 20px;border-radius:16px;background:var(--card);border:1px solid var(--line);position:relative;overflow:hidden}
+.sg .dot{width:12px;height:12px;border-radius:50%;margin-bottom:16px}
+.sg b{display:block;font-weight:500;font-size:18px;letter-spacing:-.02em}.sg span{display:block;color:var(--muted);font-size:14px;margin-top:6px;line-height:1.45}
+.sg em{display:block;font:500 12px "Geist Mono",monospace;color:var(--acc);font-style:normal;margin-top:14px}
+/* régua */
+.regua{margin-top:56px;position:relative;padding:34px 28px 30px;border-radius:22px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.track{position:relative;height:4px;border-radius:4px;background:var(--line2);margin:46px 4% 0}
+.track .fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:4px;background:var(--acc);box-shadow:0 0 14px var(--acc)}
+.track .pk{position:absolute;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(207,255,62,.18),0 0 20px var(--acc)}
+.stops{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:-11px;position:relative}
+.st{text-align:center;padding-top:0}
+.st .c{width:18px;height:18px;border-radius:50%;margin:0 auto;background:var(--card);border:3px solid var(--line2);transition:all .4s var(--ease)}
+.st.on .c{background:var(--acc);border-color:var(--acc);box-shadow:0 0 14px var(--acc)}
+.st small{display:block;font:500 12px "Geist Mono",monospace;color:var(--dim);margin-top:14px}
+.st b{display:block;font-weight:500;font-size:15.5px;letter-spacing:-.02em;margin-top:4px}
+.st span{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
+.st .ch{display:inline-flex;gap:5px;margin-top:10px}.st .ch i{font:500 10.5px "Geist Mono",monospace;font-style:normal;padding:3px 7px;border-radius:99px;border:1px solid var(--line2);color:var(--muted)}
+.st.on .ch i{border-color:rgba(207,255,62,.4);color:var(--acc)}
+@media(max-width:860px){.stops{grid-template-columns:repeat(2,1fr);row-gap:26px}.track{display:none}.stops{margin-top:0}}
+/* processo */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+@media(max-width:920px){.steps{grid-template-columns:1fr 1fr}}
+.sp{padding:26px;border-radius:18px;border:1px solid var(--line);background:var(--card)}
+.sp .k{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--acc);color:var(--on);font:600 14px "Geist Mono",monospace}
+.sp h3{font-weight:500;font-size:20px;letter-spacing:-.025em;margin-top:18px}.sp p{color:var(--muted);font-size:14.5px;margin-top:8px}
+/* canais */
+.chs{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chs span{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid var(--line2);background:var(--card);font-size:15px}
+.chs span i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+/* form */
+.fx{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:44px;border-radius:24px;border:1px solid var(--line2);background:radial-gradient(ellipse 70% 100% at 100% 0%,rgba(207,255,62,.1),transparent 60%),var(--card)}
+@media(max-width:900px){.fx{grid-template-columns:1fr;padding:28px}}
+.fx ul{list-style:none;margin-top:24px;display:grid;gap:10px;color:#cfcfc8}.fx li::before{content:"→ ";color:var(--acc)}
+form label{display:block;font-size:14px;color:var(--muted);margin-top:14px}
+form input,form select{display:block;width:100%;margin-top:6px;font:inherit;font-size:16px;color:var(--ink);background:#0b0b0e;border:1px solid var(--line2);border-radius:11px;padding:13px 14px;outline:none}
+form input:focus,form select:focus{border-color:var(--acc)}
+.cs{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:13.5px;color:var(--muted)}.cs input{width:16px;height:16px;margin-top:3px;accent-color:#cfff3e;flex:none}
+.err{color:#ffc44d;font-size:14px;min-height:20px;margin-top:10px}
+.ok{display:none;padding:30px 0;text-align:center}.ok b{display:block;font-size:24px;letter-spacing:-.03em;margin-top:10px}.ok p{color:var(--muted);margin-top:6px}
+/* faq */
+.faq{max-width:820px;margin:44px auto 0}
+.qa{border-bottom:1px solid var(--line)}.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:0;color:var(--ink);font:500 18px Geist,sans-serif;letter-spacing:-.02em;text-align:left;padding:22px 0;cursor:pointer}
+.qa .pl{color:var(--acc);font-size:22px;transition:transform .3s}.qa.open .pl{transform:rotate(45deg)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}.qa.open .ans{grid-template-rows:1fr}.qa .ans>div{overflow:hidden;color:var(--muted);font-size:16px}.qa.open .ans>div{padding-bottom:22px}
+
+/* ===== botão líquido (vivo): superfície SVG única com filtro gooey ===== */
+.lq{margin-right:10px;position:relative;display:inline-flex;align-items:center;justify-content:center;padding:16px 26px;font:500 15.5px Geist,sans-serif;color:var(--on);cursor:pointer;isolation:isolate;text-decoration:none}
+.lq .lqs{position:absolute;left:-40px;top:-40px;overflow:visible;z-index:-1;pointer-events:none}
+.lq .s1{stop-color:var(--lq1)}.lq .s2{stop-color:var(--lq1);transition:stop-color .7s var(--ease)}
+.lq:hover .s2{stop-color:var(--lq2)}
+.lq::after{content:"";position:absolute;inset:-16px;border-radius:999px;background:radial-gradient(closest-side,var(--lqg),transparent);opacity:0;transition:opacity .6s;z-index:-2;filter:blur(12px)}
+.lq:hover::after{opacity:1}
+.lq .lt{position:relative;display:inline-flex;gap:10px;align-items:center}
+.lq .lt .arr{transition:transform .5s var(--ease)}.lq:hover .lt .arr{transform:translateX(4px)}
+.root-lq{--lq1:#cfff3e;--lq2:#2ff0b5;--lqg:rgba(207,255,62,.4)}
+.gelo{--lq1:#2f5bff;--lq2:#9d7bff;--lqg:rgba(47,91,255,.35)}
+:root{--lq1:#cfff3e;--lq2:#2ff0b5;--lqg:rgba(207,255,62,.4)}
+.chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:28px;font-size:14px;color:var(--muted)}.chips span{display:inline-flex;align-items:center;gap:8px}.chips svg{color:var(--acc)}
+/* ---- hero: fluxo de automação ---- */
+.flow{position:relative;width:100%;max-width:580px;height:640px;justify-self:center}
+.flow svg.edges{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.edges path{fill:none;stroke:#2a2a31;stroke-width:2}
+.edges path.lit{stroke:rgba(207,255,62,.55)}
+.nd{position:absolute;left:0;width:282px;height:62px;display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:rgba(17,17,20,.92);border:1px solid var(--line2);transition:border-color .4s,box-shadow .4s,transform .4s var(--ease);font-size:13.5px}
+.nd .ic{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#1a1a1f;color:var(--muted);transition:background .4s,color .4s}
+.nd .ic svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.nd b{display:block;font-weight:500;font-size:14px;letter-spacing:-.01em}.nd small{display:block;color:var(--dim);font:500 10.5px "Geist Mono",monospace;margin-top:2px;white-space:nowrap}
+.nd .tg{margin-left:auto;font:500 10px "Geist Mono",monospace;color:var(--dim);border:1px solid var(--line2);border-radius:99px;padding:3px 7px;white-space:nowrap}
+.nd.on{border-color:rgba(207,255,62,.65);box-shadow:0 0 0 4px rgba(207,255,62,.07),0 10px 30px -12px rgba(207,255,62,.45);transform:translateX(4px)}
+.nd.on .ic{background:var(--acc);color:var(--on)}
+.nd.on .tg{color:var(--acc);border-color:rgba(207,255,62,.4)}
+.nd.cond{width:auto;height:auto;padding:6px 12px;border-radius:99px;left:96px;font:500 11.5px "Geist Mono",monospace;color:var(--muted);background:#0d0d10}
+.nd.cond.on{color:var(--acc)}
+.tok{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:#fff;box-shadow:0 0 0 5px rgba(207,255,62,.2),0 0 18px var(--acc);pointer-events:none;opacity:0}
+.phone{position:absolute;right:0;top:60px;width:222px;height:470px;border-radius:34px;background:#050506;border:1px solid #2e2e36;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 0 0 6px #111114;padding:16px 12px;overflow:hidden}
+.phone .isl{width:76px;height:20px;border-radius:12px;background:#000;margin:0 auto 10px}
+.phone .clk{text-align:center;font:600 34px Geist;letter-spacing:-.04em;color:#f1f1ec}.phone .dt{text-align:center;font-size:11px;color:#9a9aa3;margin-bottom:12px}
+.nt{display:flex;gap:9px;align-items:flex-start;padding:10px;border-radius:14px;background:rgba(40,40,46,.82);backdrop-filter:blur(10px);margin-bottom:8px;font-size:11.5px;line-height:1.35;color:#e8e8e3;animation:ntin .6s var(--ease) both}
+@keyframes ntin{from{opacity:0;transform:translateY(-18px) scale(.96)}to{opacity:1;transform:none}}
+.nt .ap{flex:none;width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font:700 11px Geist}
+.nt .ap.wa{background:#25d366;color:#05310f}.nt .ap.em{background:#f1f1ec;color:#0a0a0a}.nt .ap.st{background:var(--acc);color:var(--on)}
+.nt b{display:block;font-size:11.5px}.nt small{float:right;color:#8a8a92;font-size:10px}
+.rev{position:absolute;left:0;bottom:0;padding:12px 16px;border-radius:14px;background:rgba(17,17,20,.92);border:1px solid var(--line2)}
+.rev small{display:block;font:500 10.5px "Geist Mono",monospace;color:var(--dim);letter-spacing:.05em}.rev b{display:block;font:600 24px Geist;letter-spacing:-.03em;margin-top:2px}.rev b em{font-style:normal;color:var(--acc)}
+@media(max-width:620px){.nd{height:auto}.flow{height:auto;display:grid;gap:14px}.flow svg.edges,.tok{display:none}.nd{position:relative!important;top:auto!important;width:100%}.nd.cond{left:0}.phone{position:relative;top:auto;margin:10px auto 0;width:100%;max-width:300px}.rev{position:relative}}
+/* bento dinheiro parado */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+@media(max-width:920px){.bento{grid-template-columns:1fr}.bx.w2{grid-column:auto!important}}
+.bx{position:relative;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,#131317,#0e0e11);overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s,transform .4s var(--ease)}
+.bx:hover{border-color:var(--line2);transform:translateY(-3px)}
+.bx.w2{grid-column:span 2}
+.bx .bv{display:block;width:100%;height:150px;padding:18px 18px 0;background:radial-gradient(ellipse 70% 90% at 50% 100%,rgba(207,255,62,.05),transparent 70%)}
+.bx .bt{padding:18px 24px 24px}
+.bx .n{font:500 12px "Geist Mono",monospace;color:var(--dim)}
+.bx h3{font-weight:500;font-size:21px;letter-spacing:-.025em;line-height:1.2;margin-top:8px}
+.bx p{color:var(--muted);font-size:15px;margin-top:8px}
+.bx .chip{display:inline-block;margin-top:14px;font:500 11px "Geist Mono",monospace;color:var(--acc);border:1px solid rgba(207,255,62,.35);border-radius:99px;padding:4px 10px}
+.bx.stat{flex-direction:row;align-items:center;background:radial-gradient(ellipse 60% 120% at 0% 50%,rgba(207,255,62,.1),transparent 60%),#111114;border-color:var(--line2)}
+.bx.stat .sv{flex:none;width:260px;padding:20px}.bx.stat svg{width:100%;display:block}
+.bx.stat .num{font:700 clamp(64px,7vw,100px)/.85 Geist;letter-spacing:-.07em;color:var(--acc)}
+.bx.stat .lg{font-size:19px;color:var(--ink);letter-spacing:-.02em;line-height:1.35;margin-top:14px}.bx.stat small{display:block;color:var(--dim);font:500 11.5px "Geist Mono",monospace;margin-top:10px}
+@media(max-width:620px){.bx.stat{flex-direction:column;align-items:flex-start}.bx.stat .sv{width:200px}}
+/* pilares */
+.pil{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+@media(max-width:920px){.pil{grid-template-columns:1fr}}
+.pl3{position:relative;padding:30px 28px;border-radius:20px;border:1px solid var(--line);background:var(--card);overflow:hidden}
+.pl3 svg.ic{width:100%;height:120px;display:block;margin-bottom:18px}
+.pl3 h3{font-weight:500;font-size:24px;letter-spacing:-.03em}
+.pl3 p{color:var(--muted);font-size:15px;margin-top:10px}
+.pl3 ul{list-style:none;margin-top:16px;display:grid;gap:8px;font-size:14.5px;color:#cfcfc8}.pl3 li{display:flex;gap:10px}.pl3 li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--acc);margin-top:9px;box-shadow:0 0 8px var(--acc)}
+.cross{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:920px){.cross{grid-template-columns:1fr 1fr}}
+.cx{padding:18px;border-radius:14px;border:1px dashed var(--line2);background:#0d0d10}
+.cx small{font:500 11px "Geist Mono",monospace;color:var(--acc);letter-spacing:.05em}.cx b{display:block;font-weight:500;font-size:15.5px;margin-top:6px;letter-spacing:-.02em}.cx span{display:block;color:var(--muted);font-size:13.5px;margin-top:4px;line-height:1.4}
+.flowd{stroke-dasharray:5 7;animation:fl 1.4s linear infinite}@keyframes fl{to{stroke-dashoffset:-24}}
+.pul{animation:pu 2.2s ease-in-out infinite;transform-origin:center;transform-box:fill-box}@keyframes pu{50%{transform:scale(1.25);opacity:.6}}
+.growb{transform-origin:bottom;transform-box:fill-box;animation:gb 2.6s var(--ease) infinite alternate}@keyframes gb{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+/* carrossel de mensagens */
+.mc{position:relative;margin-top:44px}
+.mtrack{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 28px 26px;margin:0 -28px;scrollbar-width:none;cursor:grab;align-items:stretch}
+.mtrack::-webkit-scrollbar{display:none}.mtrack.drag{cursor:grabbing;scroll-snap-type:none}
+.ms{flex:none;width:370px;scroll-snap-align:start;border-radius:22px;border:1px solid var(--line2);background:var(--card);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),border-color .3s}
+.ms:hover{transform:translateY(-4px);border-color:#43434d}
+.ms .hd{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+.ms .hd b{font-weight:500;font-size:15.5px}.ms .hd small{font:500 11px "Geist Mono",monospace;color:var(--acc)}
+.ms .tg{display:flex;flex-wrap:wrap;gap:6px;padding:12px 18px 0}.ms .tg i{font:500 10.5px "Geist Mono",monospace;font-style:normal;padding:4px 8px;border-radius:99px;border:1px solid var(--line2);color:var(--muted)}.ms .tg i.a{border-color:rgba(207,255,62,.45);color:var(--acc)}
+.v{display:inline-block;font:500 11px "Geist Mono",monospace;padding:1px 5px;border-radius:5px;background:rgba(207,255,62,.16);color:#d9ff6b;border:1px solid rgba(207,255,62,.35);line-height:1.5;vertical-align:1px}
+.ph{margin:14px 18px 0;border-radius:16px;overflow:hidden}
+.ph.wa{background:#0b141a;padding:0 0 10px;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:14px 14px}
+.wtop{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#202c33}.wav{width:28px;height:28px;border-radius:50%;background:#f1f1ec;color:#0a0a0a;display:grid;place-items:center;font:700 12px Geist}
+.wtop b{display:block;font-size:13px;color:#e9edef}.wtop small{display:block;font-size:10.5px;color:#25d366}
+.wmsg{position:relative;margin:12px 12px 0;padding:6px 6px 22px;border-radius:4px 12px 12px 12px;background:#202c33;color:#e9edef;font-size:13px;line-height:1.45}
+.wimg{height:104px;border-radius:8px;display:grid;place-items:center;margin-bottom:6px}.wimg span{font:500 10.5px "Geist Mono",monospace;color:#0a0a0a;background:rgba(255,255,255,.55);padding:3px 7px;border-radius:5px}
+.wcash{border-radius:8px;padding:14px;margin-bottom:6px;background:linear-gradient(135deg,#183a24,#0f2417);text-align:center}.wcash small{display:block;font:500 10px "Geist Mono",monospace;color:#7fe0a0;letter-spacing:.08em}.wcash b{display:block;margin:6px 0 2px}.wcash span{font-size:11px;color:#9fd8b2}
+.wbody{padding:2px 4px}.wft{padding:6px 4px 0;font-size:11px;color:#8696a0}
+.wt{position:absolute;right:8px;bottom:5px;font-size:10px;color:#8696a0}
+.wbtns{margin:4px 12px 0;display:grid;gap:4px}.wb{display:block;text-align:center;padding:9px;border-radius:8px;background:#202c33;color:#53bdeb;font-size:13px;font-weight:500}
+.ph.mail{background:#e9e7e1;color:#111;padding:10px}
+.mh{padding:4px 4px 10px}.mh .sj{display:block;font-weight:600;font-size:13.5px;line-height:1.35}.mh .pv{display:block;font-size:11.5px;color:#6b6b6b;margin-top:2px}
+.ph.mail .v{background:#eef8c9;color:#3b4a00;border-color:#cfe27a}
+.mb{background:#fff;border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.mlogo{text-align:center;font:700 13px Geist;letter-spacing:.32em;color:#111;padding-bottom:8px;border-bottom:1px solid #eee}
+.mt{font-weight:600;font-size:14px;line-height:1.35;text-align:center}
+.msub{font:500 10.5px "Geist Mono",monospace;color:#777;text-align:center;letter-spacing:.04em;text-transform:uppercase}
+.cart{display:flex;align-items:center;gap:10px;padding:8px;border:1px solid #eee;border-radius:8px;font-size:12.5px}.cart .pi{width:46px;height:46px;border-radius:6px;flex:none}.cart small{display:block;color:#888;font-size:11px}.cart b{margin-left:auto;font-size:12.5px}
+.cd{display:flex;justify-content:center;align-items:center;gap:4px;font:700 18px Geist;color:#bbb;flex-wrap:wrap}.cd span{background:#111;color:#cfff3e;border-radius:6px;padding:4px 7px;font-size:15px}.cd small{width:100%;text-align:center;font:500 10px "Geist Mono",monospace;color:#777;margin-top:2px}
+.mbt{align-self:center;background:#0a0a0a;color:#cfff3e;font-weight:600;font-size:12.5px;padding:9px 16px;border-radius:8px}
+.pg3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.pp{font-size:11px;text-align:center}.pp .pi{height:62px;border-radius:6px;margin-bottom:4px}.pp span{display:block;color:#555}.pp b{display:block;font-size:11.5px}
+.cbx{position:relative;padding:12px;border-radius:10px;background:#0a0a0a;color:#f1f1ec;text-align:center;overflow:hidden}.cbx small{display:block;font:500 10px "Geist Mono",monospace;color:#cfff3e;letter-spacing:.08em}.cbx b{display:block;margin:6px 0 2px}.cbx span{font-size:11px;color:#aaa}.cbx i{position:absolute;left:0;bottom:0;height:3px;width:var(--w);background:#cfff3e}
+.cond{font:500 10.5px "Geist Mono",monospace;color:#555;background:#f4f4f0;border:1px dashed #ccc;border-radius:6px;padding:6px;text-align:center}.cond b{color:#111}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:6px}.ab span{font:500 10.5px "Geist Mono",monospace;text-align:center;padding:6px;border-radius:6px;background:#f4f4f0;border:1px solid #e4e4dc}
+.mfoot{text-align:center;font-size:10px;color:#999;padding-top:6px;border-top:1px solid #eee}
+.cfg{margin:14px 18px 0;padding:12px;border-radius:12px;background:#0b0b0e;border:1px solid var(--line);display:grid;gap:6px}
+.cfg div{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:12px}.cfg span{font:500 10.5px "Geist Mono",monospace;color:var(--dim);text-transform:uppercase;letter-spacing:.04em;padding-top:1px}.cfg b{font-weight:500;color:#cfcfc8}
+.ms .why{padding:14px 18px 20px;color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:auto}.ms .why b{color:var(--ink);font-weight:500}
+.mnav{display:flex;gap:8px;justify-content:flex-end;margin-top:-6px}
+.mnav button{width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:var(--card);color:var(--ink);font-size:18px;cursor:pointer;transition:border-color .3s}.mnav button:hover{border-color:var(--acc);color:var(--acc)}
+.mdots{display:flex;gap:6px;justify-content:center;margin-top:6px}.mdots i{width:22px;height:4px;border-radius:4px;background:var(--line2);transition:background .3s}.mdots i.on{background:var(--acc)}
+.vars{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:26px}.vars span{font:500 11.5px "Geist Mono",monospace;color:var(--dim);margin-right:6px;text-transform:uppercase;letter-spacing:.06em}.vars i{font:500 11.5px "Geist Mono",monospace;font-style:normal;color:#d9ff6b;padding:4px 8px;border-radius:7px;background:rgba(207,255,62,.08);border:1px solid rgba(207,255,62,.25)}
+@media(max-width:520px){.ms{width:310px}}
+/* parceiros */
+.pt{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+@media(max-width:760px){.pt{grid-template-columns:1fr}}
+.pc{display:flex;align-items:center;gap:22px;padding:28px;border-radius:20px;border:1px solid var(--line2);background:linear-gradient(135deg,#131317,#0d0d10);transition:border-color .3s}
+.pc:hover{border-color:#43434d}
+.pc .wm{flex:none;width:150px;height:78px;border-radius:14px;display:grid;place-items:center;background:#f6f6f2;border:1px solid var(--line2);padding:14px 18px}.pc .wm img{max-width:100%;max-height:100%;display:block}
+.pc b{display:block;font-weight:500;font-size:19px;letter-spacing:-.02em}.pc span{display:block;color:var(--muted);font-size:14.5px;margin-top:4px;line-height:1.45}
+.pc small{display:inline-block;margin-top:10px;font:500 11px "Geist Mono",monospace;color:var(--acc);letter-spacing:.06em;text-transform:uppercase}
+footer{border-top:1px solid var(--line);padding:30px 0;font:500 12.5px "Geist Mono",monospace;color:var(--dim)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}footer a{color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="chk" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="phi" viewBox="0 0 46 62"><circle cx="23" cy="34" r="15" fill="none" stroke-width="5"/><line x1="23" y1="6" x2="23" y2="60" stroke-width="5"/></symbol></svg>
+<nav><div class="wrap"><a class="logo" href="/">code<svg width="15" height="21"><use href="#phi"/></svg></a>
+<div class="nl"><a href="#estrategia">O que fazemos</a><a href="#dor">Dinheiro parado</a><a href="#segmentos">Segmentos</a><a href="#regua">Réguas</a><a href="#mensagens">Mensagens</a><a href="#como">Como funciona</a><a href="#faq">Dúvidas</a><a href="/blog/">Blog</a></div>
+<a class="btn btn-a btn-s" href="#call" data-cta>Agendar call</a></div></nav>
+
+<header class="hero"><div class="gr"></div><div class="wrap hg">
+ <div>
+  <div class="eb rv"><i></i>CRM e recompra · e-commerce</div>
+  <h1 class="rv d1">Seus clientes já compraram. <em>Por que eles não voltam?</em></h1>
+  <p class="sub rv d2">A Code ϕ estrutura e opera o CRM da sua loja: réguas automáticas, WhatsApp via API, e-mails com blocos dinâmicos e cashback. Tudo cruzado com os dados de compra para o cliente voltar sem você pagar anúncio de novo.</p>
+  <div class="ctas acts rv d3"><a href="#call" class="lq" data-cta><span class="lt">Agendar uma call sobre CRM <span class="arr">→</span></span></a><a href="#estrategia" class="btn btn-g">Ver como funciona</a></div>
+  <div class="chips rv d3"><span><svg width="15" height="15"><use href="#chk"/></svg>Sem trocar de plataforma</span><span><svg width="15" height="15"><use href="#chk"/></svg>WhatsApp oficial via API</span><span><svg width="15" height="15"><use href="#chk"/></svg>Medido pela receita</span></div>
+ </div>
+ <div class="flow rv d2" id="flow">
+  <svg class="edges" id="edges"></svg>
+  <div class="nd" data-n="0" style="top:0"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="3"/><path d="M8 12h8M8 15.5h5"/></svg></span><span><b>Pop-up de captação</b><small>10% OFF · {{email}}</small></span><span class="tg">entrada</span></div>
+  <div class="nd" data-n="1" style="top:78px"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h2l2.2 10.2h9.6L20 8H7"/><circle cx="10" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span><span><b>Carrinho abandonado</b><small>{{produto}} · {{valor}}</small></span><span class="tg">gatilho</span></div>
+  <div class="nd cond" data-n="2" style="top:144px">⟐ comprou em 1h? · não</div>
+  <div class="nd" data-n="3" style="top:196px"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg></span><span><b>WhatsApp via API</b><small>modelo · botão · {{cupom}}</small></span><span class="tg">+1h</span></div>
+  <div class="nd" data-n="4" style="top:274px"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg></span><span><b>E-mail dinâmico</b><small>itens + recomendação</small></span><span class="tg">+4h</span></div>
+  <div class="nd" data-n="5" style="top:352px"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span><b>Compra aprovada</b><small>{{pedido}} · R$ 289</small></span><span class="tg">conversão</span></div>
+  <div class="nd" data-n="6" style="top:430px"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M14.8 9.2c-.6-.9-1.6-1.4-2.8-1.4-1.6 0-2.8.8-2.8 2.1 0 3 5.8 1.5 5.8 4.4 0 1.3-1.3 2.2-3 2.2-1.3 0-2.4-.6-3-1.5M12 6v1.8M12 16.6v1.6"/></svg></span><span><b>Cashback creditado</b><small>{{saldo}} · {{dias}} dias</small></span><span class="tg">reter</span></div>
+  <div class="nd" data-n="7" style="top:508px"><span class="ic"><svg viewBox="0 0 24 24"><path d="M19 8.5A7.5 7.5 0 1 0 19.6 14"/><path d="M19.5 4v4.6H15"/></svg></span><span><b>Recompra</b><small>saldo vencendo · +25d</small></span><span class="tg">LTV</span></div>
+  <div class="phone"><div class="isl"></div><div class="clk" id="pclk">14:07</div><div class="dt">terça-feira, 10 de novembro</div><div id="nts"></div></div>
+  <div class="tok" id="tok"></div>
+  <div class="rev" style="left:auto;right:0;bottom:6px"><small>RECEITA DA BASE · SIMULAÇÃO</small><b>R$ <em id="rv">0</em></b></div>
+ </div>
+</div></header>
+
+<section id="estrategia" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="eb rv"><i></i>O que a gente faz</div>
+ <h2 class="rv">CRM não é disparar e-mail. <em>É estratégia com dados.</em></h2>
+ <p class="sub rv">Antes de qualquer mensagem, a gente desenha o caminho: quem recebe o quê, quando, por qual canal e com qual objetivo. E mede pelo que voltou para o caixa.</p>
+ <div class="pil">
+  <div class="pl3 rv"><svg class="ic" viewBox="0 0 320 120"><path class="flowd" d="M20 90 C 80 90, 90 30, 160 30 S 240 90, 300 90" fill="none" stroke="#cfff3e" stroke-width="2.5"/><g fill="#131317" stroke="#2e2e36" stroke-width="2"><circle cx="20" cy="90" r="12"/><circle cx="160" cy="30" r="12"/><circle cx="300" cy="90" r="12"/></g><circle class="pul" cx="20" cy="90" r="5" fill="#cfff3e"/><circle class="pul" cx="160" cy="30" r="5" fill="#cfff3e" style="animation-delay:.7s"/><circle class="pul" cx="300" cy="90" r="5" fill="#cfff3e" style="animation-delay:1.4s"/><text x="20" y="118" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">gatilho</text><text x="160" y="12" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">mensagem</text><text x="300" y="118" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">compra</text></svg>
+   <h3>Estruturar as réguas</h3><p>O mapa da jornada do cliente transformado em automações que rodam sozinhas.</p>
+   <ul><li>Gatilho, espera e saída de cada régua</li><li>Canal certo para cada etapa (e-mail, WhatsApp, SMS)</li><li>Limite de frequência para não cansar a base</li><li>Teste A/B de assunto, horário e oferta</li></ul></div>
+  <div class="pl3 rv d1"><svg class="ic" viewBox="0 0 320 120"><g fill="#2e2e36"><rect x="20" y="40" width="34" height="70" rx="6"/><rect x="74" y="60" width="34" height="50" rx="6"/><rect x="128" y="30" width="34" height="80" rx="6"/><rect x="182" y="50" width="34" height="60" rx="6"/></g><rect class="growb" x="236" y="14" width="34" height="96" rx="6" fill="#cfff3e"/><rect class="growb" x="128" y="30" width="34" height="80" rx="6" fill="#cfff3e" opacity=".35" style="animation-delay:.5s"/><path d="M14 112H306" stroke="#2e2e36" stroke-width="2"/><text x="253" y="8" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#cfff3e">Black</text></svg>
+   <h3>Planos estratégicos</h3><p>Um calendário de CRM com meta por segmento, não uma lista de disparos soltos.</p>
+   <ul><li>Calendário mensal de campanhas e datas</li><li>Meta de receita da base por segmento</li><li>Lançamentos, coleções e reposição planejados</li><li>Previsão do que a base pode gerar no mês</li></ul></div>
+  <div class="pl3 rv d2"><svg class="ic" viewBox="0 0 320 120"><g fill="none" stroke-width="2"><circle cx="110" cy="60" r="44" stroke="#2e2e36"/><circle cx="160" cy="60" r="44" stroke="#2e2e36"/><circle cx="210" cy="60" r="44" stroke="#2e2e36"/></g><path d="M160 26 a44 44 0 0 1 0 68 a44 44 0 0 1 0-68z" fill="rgba(207,255,62,.25)" class="pul"/><circle cx="160" cy="60" r="6" fill="#cfff3e"/><text x="80" y="64" font-family="Geist Mono" font-size="11" fill="#74747c">pedidos</text><text x="138" y="116" font-family="Geist Mono" font-size="11" fill="#74747c">site</text><text x="212" y="64" font-family="Geist Mono" font-size="11" fill="#74747c">anúncios</text></svg>
+   <h3>Cruzar dados</h3><p>Pedidos, navegação, campanhas e anúncios lidos juntos para decidir com base no que de fato acontece.</p>
+   <ul><li>Valor, frequência e última compra de cada cliente</li><li>Tempo médio entre uma compra e outra</li><li>Produtos que costumam ser comprados juntos</li><li>Quem não deve receber oferta do que já comprou</li></ul></div>
+ </div>
+ <div class="cross rv">
+  <div class="cx"><small>CRUZAMENTO 01</small><b>Comprou vestido, não comprou acessório</b><span>Sugestão do complemento certo na 2ª compra.</span></div>
+  <div class="cx"><small>CRUZAMENTO 02</small><b>Intervalo médio de 45 dias</b><span>A régua de reposição dispara no dia 40.</span></div>
+  <div class="cx"><small>CRUZAMENTO 03</small><b>Clicou no anúncio e já é cliente</b><span>Sai do público de anúncio e entra na régua da base.</span></div>
+  <div class="cx"><small>CRUZAMENTO 04</small><b>Só compra com cupom</b><span>Recebe oferta na data certa; o fiel não ganha desconto à toa.</span></div>
+ </div>
+</div></section>
+
+<section id="dor" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="eb rv"><i></i>O dinheiro parado</div>
+ <h2 class="rv">A maior parte das lojas trata cliente antigo <em>como desconhecido.</em></h2>
+ <p class="sub rv">Seis vazamentos que a gente encontra em quase toda base. Cada um é venda que já estava praticamente feita.</p>
+ <div class="bento">
+  <div class="bx w2 rv"><svg class="bv" viewBox="0 0 640 110"><circle cx="18" cy="20" r="5" fill="#2a2a31"/><circle cx="42" cy="20" r="5" fill="#2a2a31"/><circle cx="66" cy="20" r="5" fill="#2a2a31"/><circle cx="90" cy="20" r="5" fill="#2a2a31"/><circle cx="114" cy="20" r="5" fill="#2a2a31"/><circle cx="138" cy="20" r="5" fill="#2a2a31"/><circle cx="162" cy="20" r="5" fill="#2a2a31"/><circle cx="186" cy="20" r="5" fill="#2a2a31"/><circle cx="210" cy="20" r="5" fill="#2a2a31"/><circle cx="234" cy="20" r="5" fill="#2a2a31"/><circle cx="258" cy="20" r="5" fill="#2a2a31"/><circle cx="282" cy="20" r="5" fill="#2a2a31"/><circle cx="306" cy="20" r="5" fill="#2a2a31"/><circle cx="330" cy="20" r="5" fill="#2a2a31"/><circle cx="354" cy="20" r="5" fill="#2a2a31"/><circle cx="378" cy="20" r="5" fill="#2a2a31"/><circle cx="402" cy="20" r="5" fill="#2a2a31"/><circle cx="426" cy="20" r="5" fill="#2a2a31"/><circle cx="450" cy="20" r="5" fill="#2a2a31"/><circle cx="474" cy="20" r="5" fill="#2a2a31"/><circle cx="498" cy="20" r="5" fill="#2a2a31"/><circle cx="522" cy="20" r="5" fill="#2a2a31"/><circle cx="546" cy="20" r="5" fill="#2a2a31"/><circle cx="570" cy="20" r="5" fill="#2a2a31"/><circle cx="594" cy="20" r="5" fill="#2a2a31"/><circle cx="618" cy="20" r="5" fill="#2a2a31"/><circle cx="18" cy="46" r="5" fill="#2a2a31"/><circle cx="42" cy="46" r="5" fill="#2a2a31"/><circle cx="66" cy="46" r="5" fill="#2a2a31"/><circle cx="90" cy="46" r="5" fill="#2a2a31"/><circle cx="114" cy="46" r="5" fill="#2a2a31"/><circle cx="138" cy="46" r="5" fill="#2a2a31"/><circle cx="162" cy="46" r="5" fill="#2a2a31"/><circle cx="186" cy="46" r="5" fill="#2a2a31"/><circle cx="210" cy="46" r="5" fill="#2a2a31"/><circle cx="234" cy="46" r="5" fill="#2a2a31"/><circle cx="258" cy="46" r="5" fill="#2a2a31"/><circle cx="282" cy="46" r="5" fill="#2a2a31"/><circle cx="306" cy="46" r="5" fill="#2a2a31"/><circle cx="330" cy="46" r="5" fill="#2a2a31"/><circle cx="354" cy="46" r="5" fill="#2a2a31"/><circle cx="378" cy="46" r="5" fill="#2a2a31"/><circle cx="402" cy="46" r="5" fill="#2a2a31"/><circle cx="426" cy="46" r="5" fill="#2a2a31"/><circle cx="450" cy="46" r="5" fill="#2a2a31"/><circle cx="474" cy="46" r="5" fill="#2a2a31"/><circle cx="498" cy="46" r="5" fill="#2a2a31"/><circle cx="522" cy="46" r="5" fill="#2a2a31"/><circle cx="546" cy="46" r="5" fill="#2a2a31"/><circle cx="570" cy="46" r="5" fill="#2a2a31"/><circle cx="594" cy="46" r="5" fill="#2a2a31"/><circle cx="618" cy="46" r="5" fill="#2a2a31"/><circle cx="18" cy="72" r="5" fill="#2a2a31"/><circle cx="42" cy="72" r="5" fill="#2a2a31"/><circle cx="66" cy="72" r="5" fill="#2a2a31"/><circle cx="90" cy="72" r="5" fill="#2a2a31"/><circle cx="114" cy="72" r="5" fill="#2a2a31"/><circle cx="138" cy="72" r="5" fill="#2a2a31"/><circle cx="162" cy="72" r="5" fill="#2a2a31"/><circle cx="186" cy="72" r="5" fill="#2a2a31"/><circle cx="210" cy="72" r="5" fill="#2a2a31"/><circle cx="234" cy="72" r="5" fill="#2a2a31"/><circle cx="258" cy="72" r="5" fill="#2a2a31"/><circle cx="282" cy="72" r="5" fill="#2a2a31"/><circle cx="306" cy="72" r="5" fill="#2a2a31"/><circle cx="330" cy="72" r="5" fill="#2a2a31"/><circle cx="354" cy="72" r="5" fill="#2a2a31"/><circle cx="378" cy="72" r="5" fill="#2a2a31"/><circle cx="402" cy="72" r="5" fill="#2a2a31"/><circle cx="426" cy="72" r="5" fill="#2a2a31"/><circle cx="450" cy="72" r="5" fill="#2a2a31"/><circle cx="474" cy="72" r="5" fill="#2a2a31"/><circle cx="498" cy="72" r="5" fill="#2a2a31"/><circle cx="522" cy="72" r="5" fill="#2a2a31"/><circle cx="546" cy="72" r="5" fill="#2a2a31"/><circle cx="570" cy="72" r="5" fill="#2a2a31"/><circle cx="594" cy="72" r="5" fill="#2a2a31"/><circle cx="618" cy="72" r="5" fill="#2a2a31"/><circle cx="18" cy="98" r="5" fill="#2a2a31"/><circle cx="42" cy="98" r="5" fill="#2a2a31"/><circle cx="66" cy="98" r="5" fill="#2a2a31"/><circle cx="90" cy="98" r="5" fill="#2a2a31"/><circle cx="114" cy="98" r="5" fill="#2a2a31"/><circle cx="138" cy="98" r="5" fill="#2a2a31"/><circle cx="162" cy="98" r="5" fill="#2a2a31"/><circle cx="186" cy="98" r="5" fill="#2a2a31"/><circle cx="210" cy="98" r="5" fill="#2a2a31"/><circle cx="234" cy="98" r="5" fill="#2a2a31"/><circle cx="258" cy="98" r="5" fill="#2a2a31"/><circle cx="282" cy="98" r="5" fill="#2a2a31"/><circle cx="306" cy="98" r="5" fill="#2a2a31"/><circle cx="330" cy="98" r="5" fill="#2a2a31"/><circle cx="354" cy="98" r="5" fill="#2a2a31"/><circle cx="378" cy="98" r="5" fill="#2a2a31"/><circle cx="402" cy="98" r="5" fill="#2a2a31"/><circle cx="426" cy="98" r="5" fill="#2a2a31"/><circle cx="450" cy="98" r="5" fill="#2a2a31"/><circle cx="474" cy="98" r="5" fill="#2a2a31"/><circle cx="498" cy="98" r="5" fill="#2a2a31"/><circle cx="522" cy="98" r="5" fill="#2a2a31"/><circle cx="546" cy="98" r="5" fill="#2a2a31"/><circle cx="570" cy="98" r="5" fill="#2a2a31"/><circle cx="594" cy="98" r="5" fill="#2a2a31"/><circle cx="618" cy="98" r="5" fill="#2a2a31"/><circle cx="90" cy="20" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="2.2s" begin="0.0s" repeatCount="indefinite"/></circle><circle cx="234" cy="46" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="2.6s" begin="0.35s" repeatCount="indefinite"/></circle><circle cx="426" cy="72" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="3.0s" begin="0.7s" repeatCount="indefinite"/></circle><circle cx="546" cy="20" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="3.4000000000000004s" begin="1.0499999999999998s" repeatCount="indefinite"/></circle><circle cx="306" cy="98" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="3.8000000000000003s" begin="1.4s" repeatCount="indefinite"/></circle><circle cx="138" cy="72" r="5" fill="#cfff3e"><animate attributeName="opacity" values=".15;1;.15" dur="4.2s" begin="1.75s" repeatCount="indefinite"/></circle></svg><div class="bt"><span class="n">01</span><h3>Base parada</h3><p>Milhares de contatos na plataforma e quase ninguém recebe nada além da promoção do mês.</p><span class="chip">contatos sem mensagem há 60 dias</span></div></div>
+  <div class="bx rv d1"><svg class="bv" viewBox="0 0 320 140"><rect x="36" y="52" width="40" height="34" rx="6" fill="none" stroke="#9a9aa3" stroke-width="2"/><path d="m38 56 18 14 18-14" fill="none" stroke="#9a9aa3" stroke-width="2"/><path id="fp0" d="M70 70 C 140 70, 160 16, 230 16" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="8" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.0s" repeatCount="indefinite"><mpath href="#fp0"/></animateMotion></circle><path id="fp1" d="M70 70 C 140 70, 160 38, 230 38" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="30" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.12s" repeatCount="indefinite"><mpath href="#fp1"/></animateMotion></circle><path id="fp2" d="M70 70 C 140 70, 160 60, 230 60" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="52" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.24s" repeatCount="indefinite"><mpath href="#fp2"/></animateMotion></circle><path id="fp3" d="M70 70 C 140 70, 160 82, 230 82" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="74" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.36s" repeatCount="indefinite"><mpath href="#fp3"/></animateMotion></circle><path id="fp4" d="M70 70 C 140 70, 160 104, 230 104" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="96" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.48s" repeatCount="indefinite"><mpath href="#fp4"/></animateMotion></circle><path id="fp5" d="M70 70 C 140 70, 160 126, 230 126" fill="none" stroke="#2e2e36" stroke-width="2"/><rect x="236" y="118" width="70" height="14" rx="4" fill="#26262c"/><circle r="4" fill="#9a9aa3"><animateMotion dur="1.8s" begin="0.6s" repeatCount="indefinite"><mpath href="#fp5"/></animateMotion></circle></svg><div class="bt"><span class="n">02</span><h3>A mesma mensagem para todo mundo</h3><p>Quem comprou ontem e quem sumiu há um ano recebem o mesmo e-mail.</p></div></div>
+  <div class="bx rv"><svg class="bv" viewBox="0 0 320 140"><circle cx="230" cy="78" r="30" fill="#131317" stroke="#2ff0b5" stroke-width="2"/><path d="M230 66l3.5 7 7.7 1.1-5.6 5.4 1.3 7.6-6.9-3.6-6.9 3.6 1.3-7.6-5.6-5.4 7.7-1.1z" fill="#2ff0b5"/><g><rect x="60" y="40" width="74" height="34" rx="8" fill="#cfff3e"/><text x="97" y="63" text-anchor="middle" font-family="Geist" font-weight="700" font-size="17" fill="#0a0a0a">-20%</text><animateTransform attributeName="transform" type="translate" values="0 0;120 26;120 26;0 0" keyTimes="0;.45;.8;1" dur="3.2s" repeatCount="indefinite"/></g><text x="230" y="128" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">cliente fiel</text><rect x="40" y="112" width="120" height="6" rx="3" fill="#26262c"/><rect x="40" y="112" width="120" height="6" rx="3" fill="#ffc44d"><animate attributeName="width" values="120;70;70;120" keyTimes="0;.45;.8;1" dur="3.2s" repeatCount="indefinite"/></rect><text x="40" y="132" font-family="Geist Mono" font-size="11" fill="#74747c">margem</text></svg><div class="bt"><span class="n">03</span><h3>Desconto que não precisava</h3><p>O cliente fiel compraria de qualquer jeito e mesmo assim leva o cupom.</p></div></div>
+  <div class="bx rv d1"><svg class="bv" viewBox="0 0 320 140"><circle cx="210" cy="70" r="44" fill="none" stroke="#26262c" stroke-width="6"/><circle cx="210" cy="70" r="44" fill="none" stroke="#cfff3e" stroke-width="6" stroke-linecap="round" stroke-dasharray="276" transform="rotate(-90 210 70)"><animate attributeName="stroke-dashoffset" values="276;0;0;276" keyTimes="0;.7;.9;1" dur="4s" repeatCount="indefinite"/></circle><text x="210" y="76" text-anchor="middle" font-family="Geist" font-weight="600" font-size="18" fill="#f1f1ec">1h</text><g fill="none" stroke="#f1f1ec" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M50 52h10l9 42h40l9-30H64"/><circle cx="76" cy="104" r="4"/><circle cx="104" cy="104" r="4"/><animate attributeName="opacity" values="1;1;.15;1" keyTimes="0;.7;.9;1" dur="4s" repeatCount="indefinite"/></g></svg><div class="bt"><span class="n">04</span><h3>Carrinho sem recuperação</h3><p>A pessoa chegou no checkout e saiu. Ninguém lembra dela na primeira hora.</p></div></div>
+  <div class="bx rv d2"><svg class="bv" viewBox="0 0 320 140"><path id="p2c" d="M44 96 C 110 96, 150 40, 276 40" fill="none" stroke="#2e2e36" stroke-width="2.5" stroke-dasharray="4 8"/><circle cx="44" cy="96" r="10" fill="#cfff3e"/><circle cx="276" cy="40" r="10" fill="none" stroke="#4a4a52" stroke-width="2.5" stroke-dasharray="3 4"/><circle r="6" fill="#f1f1ec"><animateMotion dur="3s" repeatCount="indefinite" keyPoints="0;.55;.55" keyTimes="0;.6;1" calcMode="linear"><mpath href="#p2c"/></animateMotion><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.62;1" dur="3s" repeatCount="indefinite"/></circle><text x="44" y="126" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#cfff3e">1ª compra</text><text x="276" y="18" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">2ª compra?</text></svg><div class="bt"><span class="n">05</span><h3>A primeira compra não vira a segunda</h3><p>O pós-venda acaba no "pedido enviado" e a recompra fica por conta da sorte.</p></div></div>
+  <div class="bx rv"><svg class="bv" viewBox="0 0 320 140"><rect x="14" y="40" width="24" height="50" rx="5" fill="#2e2e36"/><rect x="50" y="53" width="24" height="37" rx="5" fill="#2e2e36"/><rect x="86" y="66" width="24" height="24" rx="5" fill="#2e2e36"/><rect x="122" y="49" width="24" height="41" rx="5" fill="#2e2e36"/><rect x="158" y="62" width="24" height="28" rx="5" fill="#2e2e36"/><rect x="194" y="45" width="24" height="45" rx="5" fill="#2e2e36"/><rect x="230" y="58" width="24" height="32" rx="5" fill="#2e2e36"/><rect x="266" y="41" width="24" height="49" rx="5" fill="#2e2e36"/><rect x="230" y="20" width="24" height="70" rx="5" fill="#2e2e36"><animate attributeName="fill" values="#2e2e36;#cfff3e;#2e2e36" dur="2.4s" repeatCount="indefinite"/></rect><path d="M8 92H312" stroke="#2e2e36" stroke-width="2"/><text x="160" y="122" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#74747c">quem são os seus melhores clientes?</text></svg><div class="bt"><span class="n">06</span><h3>Ninguém sabe quem são os melhores</h3><p>Sem segmentação, quem mais compra é tratado igual a todo o resto.</p></div></div>
+  <div class="bx w2 stat rv d1"><div class="sv"><svg viewBox="0 0 260 150"><rect x="30" y="112" width="70" height="24" rx="8" fill="#4a4a52"/><rect x="150" y="16" width="70" height="120" rx="8" fill="#cfff3e"><animate attributeName="height" values="24;120;120" keyTimes="0;.5;1" dur="3s" repeatCount="indefinite"/><animate attributeName="y" values="112;16;16" keyTimes="0;.5;1" dur="3s" repeatCount="indefinite"/></rect><text x="65" y="102" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#9a9aa3">manter</text><text x="185" y="10" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#cfff3e">conquistar</text></svg></div><div class="bt"><div class="num">5–25x</div><p class="lg">Conquistar um cliente novo custa de <b>5 a 25 vezes mais</b> do que manter quem já comprou.</p><small>FONTE: HARVARD BUSINESS REVIEW, 2014</small></div></div>
+ </div>
+</div></section>
+
+<section id="segmentos"><div class="wrap">
+ <div class="eb rv"><i></i>Passo 1 · ler a base</div>
+ <h2 class="rv">Cada cliente no <em>grupo certo.</em></h2>
+ <p class="sub rv">A gente organiza a base pelo comportamento de compra: há quanto tempo comprou, quantas vezes e quanto gastou. Cada grupo recebe uma conversa diferente.</p>
+ <div class="seg">
+  <div class="sg rv"><div class="dot" style="background:#cfff3e;box-shadow:0 0 12px #cfff3e"></div><b>Campeões</b><span>Compram muito e com frequência.</span><em>→ acesso antecipado, sem desconto</em></div>
+  <div class="sg rv d1"><div class="dot" style="background:#2ff0b5"></div><b>Fiéis</b><span>Voltam sempre, ticket bom.</span><em>→ lançamentos e indicação</em></div>
+  <div class="sg rv d2"><div class="dot" style="background:#f1f1ec"></div><b>Novos</b><span>Fizeram a primeira compra.</span><em>→ boas-vindas e 2ª compra</em></div>
+  <div class="sg rv d3"><div class="dot" style="background:#ffc44d"></div><b>Em risco</b><span>Compravam e pararam.</span><em>→ lembrete com motivo real</em></div>
+  <div class="sg rv"><div class="dot" style="background:#6a6a72"></div><b>Hibernando</b><span>Não compram há muito tempo.</span><em>→ reativação ou limpeza</em></div>
+ </div>
+</div></section>
+
+<section id="regua" style="padding-top:40px"><div class="wrap">
+ <div class="eb rv"><i></i>Passo 2 · réguas automáticas</div>
+ <h2 class="rv">O cliente recebe a mensagem <em>certa, na hora certa.</em></h2>
+ <p class="sub rv">Réguas são sequências que disparam sozinhas a partir do que o cliente faz. Montadas uma vez, trabalham todo dia.</p>
+ <div class="regua rv">
+  <div class="track" id="trk"><div class="fill" id="fill"></div><div class="pk" id="pk"></div></div>
+  <div class="stops" id="stops">
+   <div class="st"><div class="c"></div><small>DIA 0</small><b>Compra</b><span>Confirmação com a cara da marca</span><div class="ch"><i>e-mail</i><i>wpp</i></div></div>
+   <div class="st"><div class="c"></div><small>+1 HORA</small><b>Carrinho</b><span>Quem saiu do checkout recebe um lembrete</span><div class="ch"><i>wpp</i><i>e-mail</i></div></div>
+   <div class="st"><div class="c"></div><small>+3 DIAS</small><b>Pós-venda</b><span>Como usar, cuidados, suporte</span><div class="ch"><i>e-mail</i></div></div>
+   <div class="st"><div class="c"></div><small>+15 DIAS</small><b>Avaliação</b><span>Pedido de avaliação e foto real</span><div class="ch"><i>e-mail</i><i>wpp</i></div></div>
+   <div class="st"><div class="c"></div><small>+30 DIAS</small><b>2ª compra</b><span>Sugestão baseada no que ela comprou</span><div class="ch"><i>e-mail</i><i>wpp</i></div></div>
+   <div class="st"><div class="c"></div><small>+60 DIAS</small><b>Reativação</b><span>Quem sumiu recebe um motivo para voltar</span><div class="ch"><i>wpp</i></div></div>
+  </div>
+ </div>
+ <div class="chs rv"><span><i></i>E-mail marketing</span><span><i></i>WhatsApp oficial</span><span><i></i>SMS</span><span><i></i>Pop-up no site</span><span><i></i>Campanhas de data (Black Friday, Natal, Dia das Mães)</span></div>
+</div></section>
+
+<section id="mensagens" style="padding-top:30px"><div class="wrap">
+ <div class="eb rv"><i></i>Exemplos de mensagens</div>
+ <h2 class="rv">Mensagem boa tem <em>dado, gatilho e motivo.</em></h2>
+ <p class="sub rv">Exemplos do nível de comunicação que a gente estrutura: WhatsApp oficial via API com variáveis e botões, e-mails com blocos dinâmicos, cashback calculado por cliente e regras condicionais. Loja e dados fictícios.</p>
+ <div class="mc rv">
+  <div class="mtrack" id="mt"><div class="ms"><div class="hd"><b>Carrinho abandonado</b><small>+1 HORA</small></div><div class="tg"><i class="a">WhatsApp API</i><i class="">modelo de marketing</i><i class="">imagem + 2 botões</i></div>
+<div class="ph wa"><div class="wtop"><span class="wav">L</span><span><b>Loja Aurora</b><small>conta comercial oficial ✓</small></span></div>
+<div class="wmsg"><div class="wimg" style="background:linear-gradient(135deg,#e7d7c5,#b9967a)"><span><span class="v">{{imagem_produto}}</span></span></div><div class="wbody">Oi, <span class="v">{{nome}}</span>! O <b><span class="v">{{produto}}</span></b> (<span class="v">{{tamanho}}</span>) ficou no seu carrinho. Separei para você até <span class="v">{{prazo}}</span> 🙂<br><br>Finalizando hoje, use o cupom <b><span class="v">{{cupom}}</span></b> e ganhe frete grátis.</div><div class="wft">Responda SAIR para não receber</div><span class="wt">14:07 ✓✓</span></div><div class="wbtns"><span class="wb">🛒 Finalizar compra</span><span class="wb">💬 Falar com a loja</span></div></div>
+<div class="cfg"><div><span>gatilho</span><b>carrinho sem compra por 60 min</b></div><div><span>condição</span><b>valor ≥ R$ 150 · não recebeu cupom em 30d</b></div><div><span>variáveis</span><b>7 · link do carrinho único</b></div></div><div class="why"><b>Por que funciona:</b> chega com a intenção quente, mostra o produto certo e o link já abre o carrinho montado.</div></div><div class="ms"><div class="hd"><b>Carrinho · 2º toque</b><small>+4 HORAS</small></div><div class="tg"><i class="a">E-mail</i><i class="">blocos dinâmicos</i><i class="">contador</i></div>
+<div class="ph mail"><div class="mh"><span class="sj">Ainda pensando, <span class="v">{{nome}}</span>?</span><span class="pv">Seu carrinho expira hoje às 23h59</span></div><div class="mb"><div class="mlogo">AURORA</div><div class="mt">Ficou tudo aqui do jeitinho que você deixou</div><div class="cart"><div class="pi" style="background:linear-gradient(135deg,#e7d7c5,#b9967a)"></div><span><span class="v">{{produto}}</span><small><span class="v">{{tamanho}}</span> · 1 un.</small></span><b><span class="v">{{preco}}</span></b></div><div class="cd"><span>02</span>:<span>14</span>:<span>33</span><small>para o cupom expirar</small></div><div class="mbt">Voltar para o carrinho</div><div class="msub">Quem levou esse também levou</div><div class="pg3"><div class="pp"><div class="pi" style="background:#cdbba7"></div><span>Cinto</span><b>R$ 89</b></div><div class="pp"><div class="pi" style="background:#a88d73"></div><span>Bolsa</span><b>R$ 219</b></div><div class="pp"><div class="pi" style="background:#d8c3ad"></div><span>Sandália</span><b>R$ 179</b></div></div><div class="mfoot">Loja Aurora · <u>descadastrar</u></div></div></div>
+<div class="cfg"><div><span>gatilho</span><b>WhatsApp sem clique em 3h</b></div><div><span>bloco dinâmico</span><b>itens do carrinho + 3 recomendações</b></div><div><span>regra</span><b>some se comprou antes do envio</b></div></div><div class="why"><b>Por que funciona:</b> reforça por outro canal, traz o item real do carrinho e usa recomendação para aumentar o ticket.</div></div><div class="ms"><div class="hd"><b>Cashback creditado</b><small>APÓS ENTREGA</small></div><div class="tg"><i class="a">WhatsApp API</i><i class="">utilidade</i><i class="">botão de URL</i></div>
+<div class="ph wa"><div class="wtop"><span class="wav">L</span><span><b>Loja Aurora</b><small>conta comercial oficial ✓</small></span></div>
+<div class="wmsg"><div class="wcash"><small>SEU CASHBACK</small><b><span class="v">{{valor_cashback}}</span></b><span>válido até <span class="v">{{validade}}</span></span></div><div class="wbody"><span class="v">{{nome}}</span>, seu pedido <span class="v">{{pedido}}</span> foi entregue e caiu <b><span class="v">{{valor_cashback}}</span></b> de cashback na sua conta 💚<br><br>Ele vale para compras acima de <span class="v">{{valor_minimo}}</span> até <span class="v">{{validade}}</span>.</div><div class="wft">Responda SAIR para não receber</div><span class="wt">14:07 ✓✓</span></div><div class="wbtns"><span class="wb">💳 Ver meu saldo</span><span class="wb">🛍️ Ver novidades</span></div></div>
+<div class="cfg"><div><span>gatilho</span><b>status do pedido = entregue</b></div><div><span>cálculo</span><b>10% do pedido · teto R$ 50</b></div><div><span>variáveis</span><b>5 · saldo vem da API</b></div></div><div class="why"><b>Por que funciona:</b> transforma a primeira compra em motivo concreto para a segunda, com valor e prazo personalizados.</div></div><div class="ms"><div class="hd"><b>Cashback vencendo</b><small>7 DIAS ANTES</small></div><div class="tg"><i class="a">E-mail</i><i class="">saldo por cliente</i><i class="">vitrine filtrada</i></div>
+<div class="ph mail"><div class="mh"><span class="sj"><span class="v">{{nome}}</span>, seus <span class="v">{{valor_cashback}}</span> vencem em 7 dias</span><span class="pv">Dá para usar em peças que você vai amar</span></div><div class="mb"><div class="mlogo">AURORA</div><div class="cbx"><small>SALDO DISPONÍVEL</small><b><span class="v">{{valor_cashback}}</span></b><span>expira em <span class="v">{{validade}}</span></span><i style="--w:72%"></i></div><div class="msub">Peças que ficam quase de graça com o seu saldo</div><div class="pg3"><div class="pp"><div class="pi" style="background:#d6c7b6"></div><span>Blusa</span><b>R$ 79</b></div><div class="pp"><div class="pi" style="background:#b9a48e"></div><span>Lenço</span><b>R$ 49</b></div><div class="pp"><div class="pi" style="background:#cbb59c"></div><span>Brinco</span><b>R$ 39</b></div></div><div class="mbt">Usar meu cashback</div><div class="mfoot">Loja Aurora · <u>descadastrar</u></div></div></div>
+<div class="cfg"><div><span>gatilho</span><b>cashback a 7 dias do vencimento</b></div><div><span>vitrine</span><b>produtos ≤ saldo + R$ 60, no tamanho dela</b></div><div><span>regra</span><b>não mostra o que já comprou</b></div></div><div class="why"><b>Por que funciona:</b> a vitrine é montada pelo saldo de cada cliente; o vencimento cria urgência real, sem desconto novo.</div></div><div class="ms"><div class="hd"><b>Pós-compra · entrega</b><small>DIA DA ENTREGA</small></div><div class="tg"><i class="a">WhatsApp API</i><i class="">utilidade</i><i class="">rastreio</i></div>
+<div class="ph wa"><div class="wtop"><span class="wav">L</span><span><b>Loja Aurora</b><small>conta comercial oficial ✓</small></span></div>
+<div class="wmsg"><div class="wbody">Boa notícia, <span class="v">{{nome}}</span>! 📦 Seu pedido <b><span class="v">{{pedido}}</span></b> saiu para entrega e chega hoje.<br><br>Transportadora: <span class="v">{{transportadora}}</span><br>Previsão: <span class="v">{{janela_entrega}}</span></div><div class="wft">Responda SAIR para não receber</div><span class="wt">14:07 ✓✓</span></div><div class="wbtns"><span class="wb">📍 Rastrear pedido</span><span class="wb">❓ Preciso de ajuda</span></div></div>
+<div class="cfg"><div><span>gatilho</span><b>status = em rota (webhook da plataforma)</b></div><div><span>canal</span><b>WhatsApp; e-mail se não houver opt-in</b></div><div><span>variáveis</span><b>4</b></div></div><div class="why"><b>Por que funciona:</b> reduz ansiedade e chamado no SAC, e abre o canal que depois vai trazer a segunda compra.</div></div><div class="ms"><div class="hd"><b>2ª compra</b><small>+30 DIAS</small></div><div class="tg"><i class="a">E-mail</i><i class="">recomendação por categoria</i><i class="">condicional</i></div>
+<div class="ph mail"><div class="mh"><span class="sj">Escolhemos isso pensando no seu último pedido</span><span class="pv">3 combinações com o que você levou</span></div><div class="mb"><div class="mlogo">AURORA</div><div class="mt">Oi, <span class="v">{{nome}}</span>. Seu <span class="v">{{ultimo_produto}}</span> combina com:</div><div class="pg3"><div class="pp"><div class="pi" style="background:#c8b29b"></div><span>Look 1</span><b>R$ 249</b></div><div class="pp"><div class="pi" style="background:#b39c84"></div><span>Look 2</span><b>R$ 199</b></div><div class="pp"><div class="pi" style="background:#dccab6"></div><span>Look 3</span><b>R$ 289</b></div></div><div class="cond"><b>SE</b> tem cashback → mostra saldo · <b>SENÃO</b> → frete grátis</div><div class="mbt">Ver combinações</div><div class="mfoot">Loja Aurora · <u>descadastrar</u></div></div></div>
+<div class="cfg"><div><span>gatilho</span><b>30 dias após a 1ª compra, sem 2º pedido</b></div><div><span>bloco</span><b>recomendação pela categoria do último item</b></div><div><span>condição</span><b>saldo de cashback > 0</b></div></div><div class="why"><b>Por que funciona:</b> cada cliente vê uma vitrine diferente e um incentivo diferente, decidido pelos dados dela.</div></div><div class="ms"><div class="hd"><b>Campeões · lista VIP</b><small>LANÇAMENTO</small></div><div class="tg"><i class="a">WhatsApp API</i><i class="">segmento Campeões</i><i class="">sem desconto</i></div>
+<div class="ph wa"><div class="wtop"><span class="wav">L</span><span><b>Loja Aurora</b><small>conta comercial oficial ✓</small></span></div>
+<div class="wmsg"><div class="wimg" style="background:linear-gradient(135deg,#2b2b30,#0f0f12)"><span style="color:#cfff3e">COLEÇÃO VERÃO · ACESSO ANTECIPADO</span></div><div class="wbody"><span class="v">{{nome}}</span>, a coleção nova abre amanhã às 10h para todo mundo.<br><br><b>Para você, que está entre as clientes mais especiais da loja, ela já está liberada agora.</b> Os tamanhos <span class="v">{{tamanho_preferido}}</span> costumam acabar primeiro.</div><div class="wft">Responda SAIR para não receber</div><span class="wt">14:07 ✓✓</span></div><div class="wbtns"><span class="wb">✨ Ver antes de todo mundo</span></div></div>
+<div class="cfg"><div><span>segmento</span><b>Campeões (RFV: compra recente, frequente, alto valor)</b></div><div><span>janela</span><b>24h antes do lançamento</b></div><div><span>incentivo</span><b>exclusividade, não cupom</b></div></div><div class="why"><b>Por que funciona:</b> o melhor cliente ganha privilégio e não desconto: margem preservada e relacionamento mais forte.</div></div><div class="ms"><div class="hd"><b>Reativação</b><small>90 DIAS SEM COMPRA</small></div><div class="tg"><i class="a">E-mail</i><i class="">segmento Em risco</i><i class="">teste A/B</i></div>
+<div class="ph mail"><div class="mh"><span class="sj"><span class="v">{{nome}}</span>, faz tempo. Mudou muita coisa por aqui</span><span class="pv">Separamos novidades no seu estilo</span></div><div class="mb"><div class="mlogo">AURORA</div><div class="mt">Chegaram peças no estilo das que você já levou</div><div class="pg3"><div class="pp"><div class="pi" style="background:#d2bea8"></div><span>Vestido</span><b>R$ 239</b></div><div class="pp"><div class="pi" style="background:#a9937c"></div><span>Calça</span><b>R$ 199</b></div><div class="pp"><div class="pi" style="background:#c4ae97"></div><span>Camisa</span><b>R$ 159</b></div></div><div class="ab"><span>A · troca grátis em 30 dias</span><span>B · 15% na volta</span></div><div class="mbt">Ver novidades</div><div class="mfoot">Loja Aurora · <u>descadastrar</u></div></div></div>
+<div class="cfg"><div><span>segmento</span><b>Em risco: 2+ pedidos, nenhum há 90 dias</b></div><div><span>teste</span><b>A/B do incentivo, 50/50 por 48h</b></div><div><span>saída</span><b>comprou → volta para a régua de fiéis</b></div></div><div class="why"><b>Por que funciona:</b> dá um motivo ligado ao gosto dela e testa qual incentivo traz de volta pelo menor custo.</div></div></div>
+  <div class="mnav"><button type="button" id="mp" aria-label="Anterior">←</button><button type="button" id="mn" aria-label="Próxima">→</button></div>
+  <div class="mdots" id="md"></div>
+ </div>
+ <div class="vars rv"><span>Variáveis usadas</span><i>{{nome}}</i><i>{{produto}}</i><i>{{tamanho}}</i><i>{{valor_carrinho}}</i><i>{{cupom}}</i><i>{{pedido}}</i><i>{{valor_cashback}}</i><i>{{validade}}</i><i>{{valor_minimo}}</i><i>{{ultimo_produto}}</i><i>{{transportadora}}</i><i>{{janela_entrega}}</i><i>{{tamanho_preferido}}</i></div>
+</div></section>
+
+<section id="como" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="eb rv"><i></i>Como funciona</div>
+ <h2 class="rv">Do diagnóstico à <em>receita recorrente.</em></h2>
+ <div class="steps">
+  <div class="sp rv"><span class="k">01</span><h3>Diagnóstico</h3><p>Lemos a base, os pedidos e o que já é enviado hoje. Você recebe o mapa do dinheiro parado.</p></div>
+  <div class="sp rv d1"><span class="k">02</span><h3>Estrutura</h3><p>Integração com a plataforma da loja, segmentos e réguas principais no ar.</p></div>
+  <div class="sp rv d2"><span class="k">03</span><h3>Operação</h3><p>Campanhas do mês, textos, artes e testes. A base conversa com a loja toda semana.</p></div>
+  <div class="sp rv d3"><span class="k">04</span><h3>Resultado</h3><p>Relatório pela receita: quanto veio da base, quantos voltaram e o que ajustar.</p></div>
+ </div>
+</div></section>
+
+<section id="call" style="padding-top:40px"><div class="wrap">
+ <div class="fx rv">
+  <div><div class="eb"><i></i>Call de CRM · 30 minutos</div><h2 style="font-size:clamp(30px,3.6vw,44px)">Vamos colocar a sua base <em>para vender?</em></h2>
+   <ul><li>Conversa direta com quem vai estruturar e operar o seu CRM</li><li>Olhamos a base, a plataforma e o que já é enviado hoje</li><li>Você sai com as réguas prioritárias e o escopo do serviço</li><li>Proposta no mesmo dia</li></ul><a href="https://wa.me/5537991536088?text=Oi!%20Quero%20agendar%20uma%20call%20sobre%20CRM%20com%20a%20Code." target="_blank" rel="noopener" class="btn btn-g" data-wa style="margin-top:26px">Prefere chamar no WhatsApp? →</a></div>
+  <div>
+   <form id="fcrm" novalidate>
+    <label>Seu nome<input name="nome" autocomplete="name"></label>
+    <label>WhatsApp com DDD<input name="whatsapp" inputmode="tel" placeholder="(11) 90000-0000" autocomplete="tel"></label>
+    <label>Site da loja<input name="site" placeholder="sualoja.com.br"></label>
+    <label>Plataforma<select name="plataforma"><option value="">Escolha</option><option>Shopify</option><option>Nuvemshop</option><option>Loja Integrada</option><option>Tray</option><option>VTEX</option><option>WooCommerce</option><option>Outra</option></select></label>
+    <label>Quantos clientes na base (aprox.)<select name="base"><option value="">Escolha</option><option>Até 1 mil</option><option>1 a 5 mil</option><option>5 a 20 mil</option><option>Mais de 20 mil</option><option>Não sei</option></select></label>
+    <label class="cs"><input type="checkbox" name="lgpd">Concordo em ser contatado pela Code ϕ para agendar a call. Meus dados não serão compartilhados.</label>
+    <div class="err" id="ferr"></div>
+    <button class="btn btn-a" type="submit" style="width:100%;margin-top:6px">Quero agendar a call →</button>
+   </form>
+   <div class="ok" id="fok"><svg width="40" height="54" style="stroke:#cfff3e"><use href="#phi"/></svg><b>Pedido recebido.</b><p>Vamos chamar você no WhatsApp para marcar o melhor horário da call.</p></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="parceiros" style="padding-top:30px"><div class="wrap">
+ <div class="eb rv"><i></i>Parceiros principais</div>
+ <h2 class="rv">As ferramentas de disparo <em>que rodam a operação.</em></h2>
+ <div class="pt">
+  <div class="pc rv"><div class="wm"><img src="/parceiros/martz.png" alt="Martz" loading="lazy"></div><div><b>Martz</b><span>Ferramenta de disparo e CRM para e-commerce: e-mail e WhatsApp via API, segmentação da base, réguas automáticas e receita atribuída.</span><small>parceiro de disparo · CRM</small></div></div>
+  <div class="pc rv d1"><div class="wm"><img src="/parceiros/flowbiz.png" alt="Flowbiz" loading="lazy"></div><div><b>Flowbiz</b><span>Ferramenta de disparo e automação de marketing: e-mail marketing, fluxos automáticos e campanhas para a base.</span><small>parceiro de disparo · automação</small></div></div>
+ </div>
+</div></section>
+
+<section id="faq" style="padding-top:40px"><div class="wrap">
+ <h2 class="rv" style="text-align:center;margin:0 auto">Dúvidas</h2>
+ <div class="faq">
+  <div class="qa rv"><button>Preciso trocar a plataforma da minha loja?<span class="pl">+</span></button><div class="ans"><div>Não. O CRM se conecta à plataforma que você já usa e puxa pedidos e clientes de lá.</div></div></div>
+  <div class="qa rv"><button>Funciona para loja pequena?<span class="pl">+</span></button><div class="ans"><div>Funciona a partir do momento em que existe base de clientes. Quanto antes as réguas entram, mais cedo a segunda compra deixa de depender de anúncio.</div></div></div>
+  <div class="qa rv"><button>WhatsApp não vira spam?<span class="pl">+</span></button><div class="ans"><div>Não, se for feito do jeito certo: canal oficial, só para quem aceitou receber, poucas mensagens e sempre com motivo. A segmentação existe justamente para isso.</div></div></div>
+  <div class="qa rv"><button>Em quanto tempo vejo resultado?<span class="pl">+</span></button><div class="ans"><div>As réguas de carrinho e pós-compra começam a trabalhar assim que entram no ar. A recompra se constrói mês a mês, e o relatório mostra a evolução pela receita.</div></div></div>
+  <div class="qa rv"><button>Quanto custa?<span class="pl">+</span></button><div class="ans"><div>Depende do tamanho da base e do que já existe hoje. A proposta sai logo depois da call.</div></div></div>
+ </div>
+</div></section>
+<footer><div class="wrap"><span>Code ϕ · Cresça com método</span><span><a href="/">codephi.com.br</a> · <a href="/blog/">blog</a> · <a href="/raio-x/">raio-x</a></span></div></footer>
+
+<script>
+const fbqT=(n,p)=>{try{window.fbq&&fbq('track',n,p||{})}catch(e){}};
+fbqT('ViewContent',{content_name:'LP CRM'});
+document.querySelectorAll('[data-wa]').forEach(a=>a.addEventListener('click',()=>fbqT('Contact',{content_name:'WhatsApp CRM'})));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>b.parentElement.classList.toggle('open'));
+// ---------- botão líquido: bolhas com mola, dentro de um filtro gooey ----------
+(()=>{const NS='http://www.w3.org/2000/svg',RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.lq').forEach((btn,k)=>{
+  const svg=document.createElementNS(NS,'svg');svg.classList.add('lqs');const P=40;
+  svg.innerHTML=`<defs><linearGradient id="lqgr${k}" gradientUnits="userSpaceOnUse"><stop offset="0" class="s1"/><stop offset="1" class="s2"/></linearGradient><filter id="lqgo${k}" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 22 -9" result="g"/><feComposite in="SourceGraphic" in2="g" operator="atop"/></filter></defs><g filter="url(#lqgo${k})" fill="url(#lqgr${k})"><rect/><circle/><circle/><circle/><circle/><circle/></g>`;
+  btn.prepend(svg);const rect=svg.querySelector('rect'),cs=[...svg.querySelectorAll('circle')],gr=svg.querySelector('linearGradient'),fl=svg.querySelector('filter');
+  let W=0,H=0;const size=()=>{const r=btn.getBoundingClientRect();W=r.width;H=r.height;svg.setAttribute('width',W+P*2);svg.setAttribute('height',H+P*2);
+    rect.setAttribute('x',P);rect.setAttribute('y',P);rect.setAttribute('width',W);rect.setAttribute('height',H);rect.setAttribute('rx',H/2);
+    gr.setAttribute('x1',P);gr.setAttribute('x2',P+W);fl.setAttribute('x',0);fl.setAttribute('y',0);fl.setAttribute('width',W+P*2);fl.setAttribute('height',H+P*2)};
+  size();addEventListener('resize',size);
+  // cada bolha: posição atual, velocidade e alvo (em px relativos ao centro do botão)
+  const B=cs.map((c,i)=>({c,x:0,y:0,vx:0,vy:0,r:H*.42,tr:H*.42}));
+  let hover=false,mx=0,my=0,t0=performance.now();
+  btn.addEventListener('pointerenter',()=>hover=true);btn.addEventListener('pointerleave',()=>hover=false);
+  btn.addEventListener('pointermove',e=>{const r=btn.getBoundingClientRect();mx=e.clientX-r.left-W/2;my=e.clientY-r.top-H/2});
+  function targets(t){const w=W/2,h=H/2,s=Math.sin;
+    if(!hover)return[[-w+h*.55+s(t*1.3)*2,s(t*1.7)*1.5,h*.9],[w-h*.55+s(t*1.1+1)*2,s(t*1.5+2)*1.5,h*.9],[s(t*.9)*w*.4,0,h*.85],[s(t*.7+2)*w*.3,0,h*.8],[0,0,h*.6]];
+    return[[-w+h*.1+s(t*2.1)*3,-h*.2+s(t*2.7)*3,h*1.0],[w-h*.15+s(t*1.9+1)*3,h*.15+s(t*2.3)*3,h*1.05],[-w*.15+s(t*1.6)*6,-h*.95+s(t*2.4)*2,h*.78],[w*.3+s(t*1.4+2)*6,h*.85+s(t*2)*2,h*.72],[Math.max(-w,Math.min(w,mx)),Math.max(-h*1.2,Math.min(h*1.2,my)),h*.8]]}
+  let last=0;(function loop(now){const dt=Math.min(.033,(now-(last||now))/1000)||.016;last=now;const t=(now-t0)/1000,T=targets(RM?0:t);
+    B.forEach((b,i)=>{const [tx,ty,tr]=T[i],k=hover?120:70,d=hover?11:12;b.vx+=((tx-b.x)*k-b.vx*d)*dt;b.vy+=((ty-b.y)*k-b.vy*d)*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;b.r+=(tr-b.r)*Math.min(1,dt*8);
+      b.c.setAttribute('cx',(P+W/2+b.x).toFixed(1));b.c.setAttribute('cy',(P+H/2+b.y).toFixed(1));b.c.setAttribute('r',Math.max(0,b.r).toFixed(1))});
+    requestAnimationFrame(loop)})(performance.now());
+});})();
+
+// ---- hero: o fluxo rodando (captação → carrinho → mensagens → compra → cashback → recompra) ----
+(()=>{const fl=document.getElementById('flow'),ed=document.getElementById('edges'),tok=document.getElementById('tok'),nts=document.getElementById('nts'),rv=document.getElementById('rv'),clk=document.getElementById('pclk');
+ const N=[...fl.querySelectorAll('.nd')];if(!N.length)return;const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const NOTE={0:['em','E-mail','Bem-vinda à Aurora! Seu cupom de 10% chegou 🎁','14:02'],3:['wa','Loja Aurora','Oi, Ana! O Vestido Linho (M) ficou no seu carrinho. Separei até amanhã 🙂','14:07'],4:['em','E-mail','Ainda pensando, Ana? Seu carrinho expira às 23h59','18:07'],5:['st','Pedido confirmado','Pedido #1042 aprovado · R$ 289,00','18:21'],6:['wa','Loja Aurora','Caiu R$ 28,90 de cashback na sua conta 💚','dia 14'],7:['em','E-mail','Ana, seus R$ 28,90 vencem em 7 dias','dia 37']};
+ let P=[];function layout(){const r=fl.getBoundingClientRect();P=N.map(n=>{const b=n.getBoundingClientRect();return{x:b.left-r.left+22,y:b.top-r.top+b.height/2}});
+  ed.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);let h='';for(let i=0;i<P.length-1;i++){const a=P[i],b=P[i+1];h+=`<path id="e${i}" d="M${a.x} ${a.y} C ${a.x-26} ${(a.y+b.y)/2}, ${b.x-26} ${(a.y+b.y)/2}, ${b.x} ${b.y}"/>`}ed.innerHTML=h}
+ layout();addEventListener('resize',layout);
+ let seg=0,t=0,last=performance.now(),total=0,hold=0;
+ function note(i){const d=NOTE[i];if(!d)return;const el=document.createElement('div');el.className='nt';el.innerHTML=`<span class="ap ${d[0]}">${d[0]==='wa'?'W':d[0]==='em'?'@':'✓'}</span><span><small>${d[3]}</small><b>${d[1]}</b>${d[2]}</span>`;nts.prepend(el);clk.textContent=/:/.test(d[3])?d[3]:clk.textContent;while(nts.children.length>4)nts.lastChild.remove()}
+ function on(i){N.forEach((n,j)=>n.classList.toggle('on',j===i));const pa=ed.querySelector('#e'+(i-1));if(pa)pa.classList.add('lit');note(i);if(i===5){total+=289;rv.textContent=total.toLocaleString('pt-BR')}if(i===7){total+=168;rv.textContent=total.toLocaleString('pt-BR')}}
+ function reset(){seg=0;t=0;ed.querySelectorAll('path').forEach(p=>p.classList.remove('lit'));nts.innerHTML='';on(0)}
+ if(RM){N.forEach(n=>n.classList.add('on'));[0,3,4,5,6].forEach(note);return}
+ reset();
+ (function loop(now){const dt=now-last;last=now;
+  if(hold>0){hold-=dt}else{const p=ed.querySelector('#e'+seg);if(p){t+=dt/900;const L=p.getTotalLength(),k=Math.min(1,t),q=p.getPointAtLength(L*(k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2));tok.style.opacity=1;tok.style.left=q.x+'px';tok.style.top=q.y+'px';
+   if(k>=1){seg++;t=0;on(seg);hold=seg===2?450:950;if(seg>=N.length-1){hold=2600;seg=N.length}}}else{tok.style.opacity=0;reset();hold=700}}
+  requestAnimationFrame(loop)})(performance.now());
+})();
+
+// ---- régua: ponto percorrendo as etapas ----
+(()=>{const S=[...document.querySelectorAll('#stops .st')],fill=document.getElementById('fill'),pk=document.getElementById('pk');let t0=null,vis=false;
+ new IntersectionObserver(e=>{vis=e[0].isIntersecting},{}).observe(document.getElementById('regua'));
+ function f(now){if(t0===null)t0=now;const T=7000,p=((now-t0)%T)/T;const q=Math.min(1,p/.85);fill.style.width=(q*100)+'%';pk.style.left=(q*100)+'%';S.forEach((s,i)=>s.classList.toggle('on',q>=i/(S.length-1)-.001));requestAnimationFrame(f)}
+ requestAnimationFrame(f)})();
+// ---- carrossel de mensagens ----
+(()=>{const t=document.getElementById('mt'),cards=[...t.children],md=document.getElementById('md');md.innerHTML=cards.map(()=>'<i></i>').join('');const dots=[...md.children];
+ const w=()=>cards[0].getBoundingClientRect().width+16;const upd=()=>{const i=Math.round(t.scrollLeft/w());dots.forEach((d,j)=>d.classList.toggle('on',j===i))};t.addEventListener('scroll',upd,{passive:true});upd();
+ document.getElementById('mn').onclick=()=>t.scrollBy({left:w(),behavior:'smooth'});document.getElementById('mp').onclick=()=>t.scrollBy({left:-w(),behavior:'smooth'});
+ let down=false,sx=0,sl=0;t.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;down=true;sx=e.clientX;sl=t.scrollLeft;t.classList.add('drag')});addEventListener('pointerup',()=>{if(!down)return;down=false;t.classList.remove('drag');t.scrollTo({left:Math.round(t.scrollLeft/w())*w(),behavior:'smooth'})});addEventListener('pointermove',e=>{if(down)t.scrollLeft=sl-(e.clientX-sx)});
+ let auto=setInterval(()=>{if(down||!vis)return;const end=t.scrollLeft+t.clientWidth>=t.scrollWidth-4;t.scrollTo({left:end?0:t.scrollLeft+w(),behavior:'smooth'})},4200),vis=false;
+ new IntersectionObserver(e=>{vis=e[0].isIntersecting}).observe(t);t.addEventListener('pointerenter',()=>{clearInterval(auto)},{once:true})})();
+// ---- formulário → planilha de leads ----
+const E={nome:44958413,whatsapp:66431530,negocio:1117726794,tipo:2044299784,interesse:156359449,plataforma:1831132350,resultado:1936739677,origem:1027363095};
+const f=document.getElementById('fcrm');
+f.whatsapp.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,v.length-4)}-${v.slice(-4)}`;else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;e.target.value=v});
+f.addEventListener('submit',e=>{e.preventDefault();const er=document.getElementById('ferr'),n=f.nome.value.trim(),w=f.whatsapp.value.replace(/\D/g,'');
+ er.textContent=!n?'Informe seu nome.':w.length<10?'Confira o WhatsApp com DDD.':!f.lgpd.checked?'Precisamos do seu aceite para entrar em contato.':'';if(er.textContent)return;
+ const q=new URLSearchParams(location.search),b=new URLSearchParams();const d={nome:n,whatsapp:f.whatsapp.value,negocio:f.site.value.trim(),tipo:'Loja online',interesse:'CRM e recompra (LP CRM · call)',plataforma:f.plataforma.value,resultado:'Base: '+(f.base.value||'não informado'),origem:['site · LP CRM',q.get('utm_source'),q.get('utm_campaign')].filter(Boolean).join(' · ')};
+ for(const k in d)if(d[k])b.append('entry.'+E[k],d[k]);
+ fetch('https://docs.google.com/forms/d/e/1FAIpQLSd2a1GVf9s57I5qFCUW-_2ThZ2ZNvFyxBTmgMbAGRV8k3grbA/formResponse',{method:'POST',mode:'no-cors',body:b}).catch(()=>{});
+ fbqT('Lead',{content_name:'Call CRM'});f.style.display='none';document.getElementById('fok').style.display='block'});
+</script>
+</body></html>
