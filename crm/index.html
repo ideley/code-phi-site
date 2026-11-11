@@ -239,6 +239,40 @@ form input:focus,form select:focus{border-color:var(--acc)}
 .pc small{display:inline-block;margin-top:10px;font:500 11px "Geist Mono",monospace;color:var(--acc);letter-spacing:.06em;text-transform:uppercase}
 footer{border-top:1px solid var(--line);padding:30px 0;font:500 12.5px "Geist Mono",monospace;color:var(--dim)}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}footer a{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+
+.foot{border-top:1px solid var(--line);padding:56px 0 30px;margin-top:20px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr 1fr}}
+.fgrid h4{font:500 11.5px "Geist Mono",monospace;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.fgrid a{display:block;color:var(--muted);font-size:14.5px;padding:4px 0}.fgrid a:hover{color:var(--ink)}
+.fgrid p{color:var(--muted);font-size:14px;margin-top:12px;max-width:280px}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font:500 11.5px "Geist Mono",monospace;color:var(--dim)}
+.svcs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:50px}
+@media(max-width:820px){.svcs{grid-template-columns:1fr}}
+.svc{position:relative;display:flex;flex-direction:column;padding:28px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(180deg,#131317,#0e0e11);overflow:hidden;transition:border-color .3s,transform .4s var(--ease)}
+.svc:hover{border-color:rgba(207,255,62,.4);transform:translateY(-4px)}
+.svc svg.sv{width:100%;height:120px;display:block;margin-bottom:20px}
+.svc .k{font:500 12px "Geist Mono",monospace;color:var(--acc)}
+.svc h3{font-weight:500;font-size:26px;letter-spacing:-.03em;margin-top:8px}
+.svc p{color:var(--muted);font-size:15.5px;margin-top:10px}
+.svc ul{list-style:none;margin-top:16px;display:grid;gap:7px;font-size:14.5px;color:#cfcfc8}.svc li::before{content:"→ ";color:var(--acc)}
+.svc .go{margin-top:auto;padding-top:22px;font:500 13px "Geist Mono",monospace;color:var(--acc)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+@media(max-width:920px){.grid3{grid-template-columns:1fr}}
+.gc{padding:26px;border-radius:18px;border:1px solid var(--line);background:var(--card);transition:border-color .3s}.gc:hover{border-color:var(--line2)}
+.gc .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:#1a1a1f;color:var(--acc)}
+.gc .ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.gc h3{font-weight:500;font-size:20px;letter-spacing:-.025em;margin-top:18px}.gc p{color:var(--muted);font-size:15px;margin-top:8px}
+.hv{position:relative;width:100%;max-width:560px;justify-self:center}
+.hv svg{width:100%;display:block}
+.band{margin-top:50px;padding:34px;border-radius:22px;border:1px solid var(--line2);background:radial-gradient(ellipse 60% 120% at 0% 50%,rgba(207,255,62,.1),transparent 60%),var(--card);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+@media(max-width:820px){.band{grid-template-columns:1fr}}
+.band h3{font-weight:500;font-size:28px;letter-spacing:-.03em;line-height:1.15}.band h3 em{font-style:normal;color:var(--acc)}.band p{color:var(--muted);font-size:16px}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:40px}@media(max-width:700px){.facts{grid-template-columns:1fr}}
+.fact{padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:var(--card)}.fact small{display:block;font:500 11px "Geist Mono",monospace;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}.fact b{display:block;font-weight:500;font-size:17px;margin-top:6px}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}@media(max-width:920px){.vals{grid-template-columns:1fr 1fr}}
+.vl{padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--card)}.vl b{display:block;font-weight:500;font-size:18px;letter-spacing:-.02em}.vl span{display:block;color:var(--muted);font-size:14px;margin-top:6px}
+.vl i{display:block;font:500 12px "Geist Mono",monospace;color:var(--acc);font-style:normal;margin-bottom:12px}
 </style>
 <link rel="canonical" href="https://codephi.com.br/crm/">
 <meta property="og:description" content="Seus clientes já compraram. A Code ϕ monta e opera o CRM da sua loja: segmentação, réguas automáticas de e-mail e WhatsApp e campanhas para o cliente voltar a comprar.">
@@ -429,7 +463,12 @@ footer{border-top:1px solid var(--line);padding:30px 0;font:500 12.5px "Geist Mo
   <div class="qa rv"><button>Quanto custa?<span class="pl">+</span></button><div class="ans"><div>Depende do tamanho da base e do que já existe hoje. A proposta sai logo depois da call.</div></div></div>
  </div>
 </div></section>
-<footer><div class="wrap"><span>Code ϕ · Cresça com método</span><span><a href="/">codephi.com.br</a> · <a href="/blog/">blog</a> · <a href="/raio-x/">raio-x</a></span></div></footer>
+<footer class="foot"><div class="wrap"><div class="fgrid">
+ <div><a class="logo" href="/" style="padding:0">code<svg width="15" height="21"><use href="#phi"/></svg></a><p>Marketing e dados para e-commerce, negócios locais e serviços. Cresça com método.</p></div>
+ <div><h4>Serviços</h4><a href="/trafego-pago/">Tráfego pago</a><a href="/crm/">CRM e recompra</a><a href="/site-e-conversao/">Site e conversão</a><a href="/site-e-conversao/#landing-pages">Landing pages</a><a href="/servicos/">Todos os serviços</a></div>
+ <div><h4>Empresa</h4><a href="/sobre/">Sobre a Code ϕ</a><a href="/trabalhe-conosco/">Trabalhe conosco</a><a href="/blog/">Blog</a><a href="/raio-x/">Raio-X grátis</a></div>
+ <div><h4>Contato</h4><a href="https://wa.me/5537991536088?text=Oi!%20Vim%20pelo%20site%20da%20Code." target="_blank" rel="noopener" data-wa>WhatsApp</a><a href="https://www.instagram.com/codevitruvian/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/code-phi/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.youtube.com/@code.vitruvian" target="_blank" rel="noopener">YouTube</a></div>
+</div><div class="fbot"><span>Code Vitruvian Comunicação e Mídia Ltda · CNPJ 48.418.062/0001-44 · Nova Serrana/MG</span><span>Code ϕ · Cresça com método</span></div></div></footer>
 
 <script>
 const fbqT=(n,p)=>{try{window.fbq&&fbq('track',n,p||{})}catch(e){}};
